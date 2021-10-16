@@ -6,8 +6,8 @@ DROP TABLE IF EXISTS pickups CASCADE;
 DROP TABLE IF EXISTS payments CASCADE;
 DROP TABLE IF EXISTS menu_items CASCADE;
 
-CREATE DATABASE carvingsdb;
-\c carvingsdb;
+CREATE DATABASE cravingsdb;
+\c cravingsdb;
 
 
 CREATE TABLE users (
