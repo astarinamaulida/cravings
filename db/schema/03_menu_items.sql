@@ -13,7 +13,7 @@ CREATE TABLE menu_items (
 
 \dt
 
-
+-- to run : \i  db/schema/03_menu_items.sql
 
 
 

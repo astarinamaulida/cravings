@@ -10,8 +10,9 @@ CREATE TABLE order_items (
   quantity INTEGER
 );
 
-
 \dt
+
+-- to run : \i  db/schema/04_order_items.sql
 
 
 

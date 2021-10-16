@@ -4,13 +4,13 @@
 // const orders = require(‘./json/orders.json’);
 // const order_items = require(‘./json/order_items.json’);
 
-// const { Pool } = require(‘pg’);
-// const pool = new Pool({
-//  user: 'labber',
-//  password: 'labber',
-//  host: 'localhost',
-//  database: 'cravingsdb' ???
-// });
+const { Pool } = require('pg');
+const pool = new Pool({
+ user: 'labber',
+ password: 'labber',
+ host: 'localhost',
+ database: 'cravingsdb'
+});
 
 
 
@@ -21,6 +21,11 @@ const getAllMenu = function (menu) {
     .then(res => res.rows);
 }
 exports.getAllMenu = getAllMenu;
+
+
+
+
+// SELECT * FROM users;SELECT * FROM orders;SELECT * FROM order_items;SELECT * FROM menu_items;
 
 
 
