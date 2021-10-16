@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-10-16T19:57:22.440Z" agent="5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.70 Safari/537.36" etag="C8Y8dQrKChxLsHyImjcq" version="15.5.4" type="github">
+<mxfile host="app.diagrams.net" modified="2021-10-16T20:05:09.904Z" agent="5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.70 Safari/537.36" etag="2lbrkfLNX-iJ37-eYq_r" version="15.5.4" type="github">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
     <mxGraphModel dx="926" dy="530" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -67,7 +67,7 @@
             <mxRectangle width="30" height="30" as="alternateBounds" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="xxg-_Av_WvTJygDesWmr-15" value="customer_id  INT REF customers(id) ON DEL CAS" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;whiteSpace=wrap;" parent="xxg-_Av_WvTJygDesWmr-13" vertex="1">
+        <mxCell id="xxg-_Av_WvTJygDesWmr-15" value="user_id INT REF users(id) ON DEL CAS" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;whiteSpace=wrap;" parent="xxg-_Av_WvTJygDesWmr-13" vertex="1">
           <mxGeometry x="30" width="180" height="30" as="geometry">
             <mxRectangle width="180" height="30" as="alternateBounds" />
           </mxGeometry>
@@ -258,7 +258,7 @@
             <mxRectangle width="30" height="30" as="alternateBounds" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="Vc9jVS3tnoy4eJUtBO8h-47" value="customer_id INTEGER REFERENCES customers(id) ON DELETE CASCADE" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;whiteSpace=wrap;" parent="Vc9jVS3tnoy4eJUtBO8h-45" vertex="1">
+        <mxCell id="Vc9jVS3tnoy4eJUtBO8h-47" value="user_id INT REF users(id) ON DEL CAS" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;whiteSpace=wrap;" parent="Vc9jVS3tnoy4eJUtBO8h-45" vertex="1">
           <mxGeometry x="30" width="210" height="30" as="geometry">
             <mxRectangle width="210" height="30" as="alternateBounds" />
           </mxGeometry>
@@ -391,7 +391,7 @@
             <mxRectangle width="30" height="30" as="alternateBounds" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="Vc9jVS3tnoy4eJUtBO8h-72" value="customer_id INT REF customers(id) ON DEL CAS" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;whiteSpace=wrap;" parent="Vc9jVS3tnoy4eJUtBO8h-70" vertex="1">
+        <mxCell id="Vc9jVS3tnoy4eJUtBO8h-72" value="user_id INT REF users(id) ON DEL CAS" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;whiteSpace=wrap;" parent="Vc9jVS3tnoy4eJUtBO8h-70" vertex="1">
           <mxGeometry x="30" width="180" height="30" as="geometry">
             <mxRectangle width="180" height="30" as="alternateBounds" />
           </mxGeometry>
