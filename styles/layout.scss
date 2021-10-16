@@ -4,3 +4,17 @@ body,
 html {
   margin: 0;
 }
+
+@media only screen and (min-width: 768px) {
+  .heroImg {
+    height: 60vh;
+    background-position: center center;
+    h1 {
+      font-size: 20em;
+    }
+  }
+  .headerButtons {
+    position: relative;
+    top: -15em;
+  }
+}
