@@ -52,16 +52,18 @@ CREATE TABLE order_items (
 -- to run : \i  db/schema/01_schema.sql
 
 
+--  SELECT * FROM users;SELECT * FROM orders;SELECT * FROM order_items;SELECT * FROM menu_items;
+
+
+
+
+
 -- CREATE TABLE pickups (
 --   id SERIAL PRIMARY KEY NOT NULL,
 --   order_id INTEGER REFERENCES orders(id) ON DELETE CASCADE,
 --   user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
 --   is_paid BOOLEAN
 -- );
-
-
-
-
 
 -- CREATE TABLE payments (
 --   id SERIAL PRIMARY KEY NOT NULL,
@@ -73,23 +75,6 @@ CREATE TABLE order_items (
 -- );
 
 
-
--- CREATE TABLE carts (
---   id SERIAL PRIMARY KEY NOT NULL,
---   user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
---   menu_item_id INTEGER REFERENCES menu_items(id) ON DELETE CASCADE,
---   placed_order TIMESTAMP,
---   isOrdered BOOLEAN
--- );
-
--- CREATE TABLE messages (
---   id SERIAL PRIMARY KEY NOT NULL,
---   order_id INTEGER REFERENCES orders(id) ON DELETE CASCADE,
---   user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
---   isProcessed BOOLEAN,
---   isReady BOOLEAN,
---   price INTEGER NOT NULL
--- );
 
 
 
