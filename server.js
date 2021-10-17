@@ -6,6 +6,7 @@ const PORT = process.env.PORT || 8080;
 const sassMiddleware = require("./lib/sass-middleware");
 const express = require("express");
 const app = express();
+const bodyParser = require('body-parser');
 const morgan = require("morgan");
 
 // PG database client/connection setup
@@ -36,12 +37,16 @@ app.use(express.static("public"));
 // Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own
 const usersRoutes = require("./routes/users");
-const widgetsRoutes = require("./routes/widgets");
+const ordersRoutes = require("./routes/orders");
+const menu_itemsRoutes = require("./routes/menu_items");
+const order_itemsRoutes = require("./routes/order_items");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 app.use("/api/users", usersRoutes(db));
-app.use("/api/widgets", widgetsRoutes(db));
+app.use("/api/orders", ordersRoutes(db));
+app.use("/api/menu_items", menu_itemsRoutes(db));
+app.use("/api/order_items", order_itemsRoutes(db));
 // Note: mount other resources here, using the same pattern above
 
 // Home page
@@ -55,7 +60,7 @@ app.get("/", (req, res) => {
 app.get("/order_signup", (req, res) => {
   res.render("order_signup");
 })
-app.get("/order_menu", (req, res) => {
+app.get("/order_menu", (req, res) => {    ///need to change (for order_items) the name of the endpoint accordingly our routes above
   res.render("order_menu");
 })
 

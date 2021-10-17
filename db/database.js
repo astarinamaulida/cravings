@@ -31,12 +31,24 @@ LIMIT 3;
 .catch(err => console.error('query error', err.stack));
 
 
+pool.query(`
+SELECT id, name, description
+FROM menu_items;
+`)
+.then(res => {
+  console.log(res.rows);
+})
+.catch(err => console.error('query error', err.stack));
+
 
 
 // const getAllMenu = function (menu) {
-//   return pool.query(`SELECT * FROM users;
+//   return pool.query(`SELECT * FROM menu_items;
 //  `, [menu])
-//     .then(res => res.rows);
+//     // .then(res => res.rows);
+//     .then(res => {
+//       console.log(res.rows);
+//     })
 // }
 // exports.getAllMenu = getAllMenu;
 
