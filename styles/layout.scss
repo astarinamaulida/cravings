@@ -10,16 +10,25 @@ html {
 }
 
 @media only screen and (min-width: 768px) {
-  .heroImg {
-    height: 60vh;
-    h1 {
-      font-size: 20em;
+  header {
+    background-color: #fec601       ;
+       background-image: url("https://github.com/astarinamaulida/cravings/blob/master/doc/landing-page2.jpg?raw=true");
+       background-size: cover;
+       background-position: center center;
+    .heroImg {
+      background: none;
+      h1 {
+        font-size: 8em;
+      }
+    }
+    .headerButtons {
+      position: relative;
+      top: -15em;
+      margin: 0;
+      padding-top: 1em;
     }
   }
-  .headerButtons {
-    position: relative;
-    top: -15em;
-  }
+ 
   #guest-login {
     width: 100%;
     margin-top: 8em;
