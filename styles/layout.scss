@@ -8,7 +8,6 @@ html {
 @media only screen and (min-width: 768px) {
   .heroImg {
     height: 60vh;
-    background-position: center center;
     h1 {
       font-size: 20em;
     }
@@ -16,5 +15,22 @@ html {
   .headerButtons {
     position: relative;
     top: -15em;
+  }
+  #guest-login {
+    width: 100%;
+    margin-top: 8em;
+    form {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      .form-group {
+        width: 40%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+    }
   }
 }

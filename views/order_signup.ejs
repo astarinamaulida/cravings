@@ -12,7 +12,6 @@
 
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
   <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
-  <link rel="stylesheet" href="/styles/main.css" type="text/css" />
   <link rel="stylesheet" href="/styles/signup.css" type="text/css" />
   <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
 
@@ -27,18 +26,20 @@
 
 <body>
   <section id="guest-login">
-    <h2>Hello Cravers!</h2>
     <form action="/order_index" method="POST">
+      <h2>Hello Cravers!</h2>
       <div class="form-group">
         <label for="name">User name</label>
         <input type="name" class="form-control" id="username" name="username" aria-describedby="nameHelp"
-          placeholder="Hey, beautiful, may I have know your name please?" required>
+          placeholder="What shall I call you?" required>
       </div>
       <div class="form-group">
         <label for="phone number">Phone number</label>
         <input type="tel" class="form-control" id="phone-number" placeholder="May I have your number please?" name="phone-number" required>
       </div>
-      <button type="submit" class="btn btn-dark">Let there be Cake!</button>
+      <div class="form-group">
+        <button type="submit" class="btn btn-dark">Let there be Cake!</button>
+      </div>
     </form>
   </section>
 
