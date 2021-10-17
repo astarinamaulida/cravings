@@ -1,15 +1,13 @@
 #menu {
     width: 100%;
-    display: flex;
-    flex-direction: column;
+    display: grid;
     justify-content: center;
     align-items: center;
     main {
-        margin: 1em;
         width: 100%;
         .mainHeadings {
             width: 95%;
-            margin-left: 1.5em;
+            margin-left: 1em;
         }
         .best-seller {
             display: flex;
@@ -28,10 +26,29 @@
             }
         }
     }
-    .browse-all-img {
-        display: grid;
-        justify-content: center;
-        align-items: center;
-        grid-gap: 1em;
+    .browse-all {
+        h3 {
+            margin-left: 3.5em;
+        }
+        .browse-all-img {
+            display: grid;
+            justify-content: center;
+            align-items: center;
+            grid-gap: 1em;
+            .items {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                text-transform: capitalize;
+                :nth-child(2) {
+                    margin-top: 1em;
+                }
+            }
+        }
+    } 
+    img:hover,
+    img:focus-within {
+        border: 3px solid yellow;
     }
 }
