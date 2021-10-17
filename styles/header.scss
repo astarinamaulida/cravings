@@ -3,8 +3,8 @@ header {
     text-transform: uppercase;
     font-family: 'Comfortaa', cursive;
     .heroImg {
-        background-color: pink;
-        background-image: url("https://github.com/astarinamaulida/cravings/blob/master/doc/landing-page2.jpg?raw=true");
+       background-color: #fec601       ;
+       background-image: url("https://github.com/astarinamaulida/cravings/blob/master/doc/landing-page2.jpg?raw=true");
        background-size: cover;
        background-position: center center;
        height: 100vh;
@@ -38,7 +38,7 @@ header {
         }
         a:hover,
         a:focus-within {
-            background-color: rgb(118, 0, 0);
+            background-color: #9aac99;
             color: white;
         }
     }
