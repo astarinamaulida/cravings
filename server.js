@@ -9,6 +9,8 @@ const app = express();
 const bodyParser = require('body-parser');
 const morgan = require("morgan");
 
+const cookieSession = require('cookie-session');
+
 // PG database client/connection setup
 const { Pool } = require("pg");
 const dbParams = require("./lib/db.js");
@@ -50,8 +52,7 @@ app.use("/api/order_items", order_itemsRoutes(db));
 // Note: mount other resources here, using the same pattern above
 
 // Home page
-// Warning: avoid creating more routes in this file!
-// Separate them into separate routes files (see above).
+// Warning: avoid creating more routes in this file! Separate them into separate routes files (see above).
 
 app.get("/", (req, res) => {
   res.render("index");
@@ -59,10 +60,34 @@ app.get("/", (req, res) => {
 
 app.get("/order_signup", (req, res) => {
   res.render("order_signup");
-})
+/// do we need req.session UserCookie in here????
+
+});
+
 app.get("/order_menu", (req, res) => {    ///need to change (for order_items) the name of the endpoint accordingly our routes above
   res.render("order_menu");
 })
+
+
+/// route for order_items:
+app.get("/api/order_items", (req, res) => {
+  // req.session.order_items = order_items;   ???? is expression correct ?
+});
+
+///LOGIN page? if we do sign up , then should be something like this :
+
+// app.get("/login/:user_email", (req, res) => {
+//   let userEmail = req.params.user_email;
+//   if (getUserByEmail(userEmail, db)) {
+//     req.session.userCookie = userEmail;
+//     //console.log(req.session.userCookie);
+//     res.redirect("/");
+//   }
+// });
+
+
+
+
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);

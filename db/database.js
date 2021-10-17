@@ -20,6 +20,7 @@ const pool = new Pool({
 
 // run from  db/database.js
 
+// need to wrap it and export it:
 pool.query(`
 SELECT id, name, email
 FROM users
@@ -30,7 +31,7 @@ LIMIT 3;
 })
 .catch(err => console.error('query error', err.stack));
 
-
+// need to wrap it and export it:
 pool.query(`
 SELECT id, name, description
 FROM menu_items;
@@ -42,13 +43,20 @@ FROM menu_items;
 
 
 
+const getUserByEmail = function (email, db) {
+  return db.query(`SELECT * FROM users
+  WHERE users.email = $1;`, [email])
+    .then(res => res.rows)
+    .catch(err => console.error(err));
+}
+exports.getUserByEmail = getUserByEmail;
+
+
+
 // const getAllMenu = function (menu) {
 //   return pool.query(`SELECT * FROM menu_items;
 //  `, [menu])
-//     // .then(res => res.rows);
-//     .then(res => {
-//       console.log(res.rows);
-//     })
+//     .then(res => res.rows);
 // }
 // exports.getAllMenu = getAllMenu;
 
