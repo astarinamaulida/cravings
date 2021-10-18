@@ -70,7 +70,6 @@ app.get("/order_menu", (req, res) => {    ///need to change (for order_items) th
 
 app.post("/order_index", (req, res) => {
   console.log(req.body);
-  console.log(req.params);
   res.render('order_index');
 })
 
