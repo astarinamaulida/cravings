@@ -29,10 +29,12 @@ header {
             border-radius: 8%;
             padding: 1em 3em;
             text-decoration: none;
+            box-shadow: 3px 3px 3px pink;
         }
         :nth-child(1) {
             background-color: #fff;
             color: #000;
+            border: 3px solid #e69da5;
         }
         :nth-child(2) {
             background-color: #e69da5;
