@@ -2,35 +2,26 @@
 
 const createMenu = function (menu_items) {
 return $(
-  ` <article class="browse-all-img">
-      <div class="card-header menu-title-price">
-
-        <div class="menu_items-title" value="${menu_items.id}">
-        ${menu_items.name}
-        </div>
-
-        <div class="menu_items-price">
-        <h5>$${menu_items.unit_price}</h5>
-        </div>
-
+  `
+<div class="browse-all">
+  <h3>Browse All</h3>
+  <div class="browse-all-img">
+      <div class="items item1">
+          <img src="${menu_items.thumbnail_url}"
+          alt="${menu_items.name}" width="300">
+          <div class="buttons">
+            <button class="cart-button">
+              <span class="add-to-cart">Add to cart</span>
+              <i class="fa fa-shopping-cart"></i>
+              <i class="fa fa-square"></i>
+            </button>
+          </div>
+          <p>${menu_items.name}</p>
+          <p>${menu_items.description}</p>
+          <p>$${menu_items.unit_price}</p>
       </div>
-
-      <div class="menu_items__flex">
-        <img class="menu_items-image inline" src="${menu_items.thumbnail_url}" alt="cake">
-        <div class="card-body">
-        <p class="card-text ">
-        ${menu_items.description}
-        </p>
-
-      </div>
-
-      <div id='quantity' class="quantity">
-      <input type="number" class="count" name="quantity" value="0" min='0'>
-      </div>
-
   </div>
-
-  </article>`
+</div>`
   )
 }
 
