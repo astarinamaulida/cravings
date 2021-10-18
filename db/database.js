@@ -59,14 +59,14 @@ const getAllMenu = function (menu) {
  `, [menu])
     .then(res => res.rows);
 }
-=======
+
  const getAllMenu = function(menu) {
    return pool
     .query(`SELECT * FROM menu_items;`, [menu])
     .then((res) => res.rows)
     .catch((err) => err.message)
  };
->>>>>>> 9cacb9433e2857e889e7093c3bac8cd9c072836d
+
 exports.getAllMenu = getAllMenu;
 
 
