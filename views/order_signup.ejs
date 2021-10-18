@@ -27,6 +27,7 @@
 </head>
 
 <body>
+  <%- include _nav.ejs %>
   <section id="guest-login">
     <form action="/order_index" method="POST">
       <h2>Hello Cravers!</h2>
@@ -40,7 +41,7 @@
         <input type="tel" class="form-control" id="phone-number" placeholder="May I have your number please?" name="phone-number" required>
       </div>
       <div class="form-group">
-        <button type="submit" class="btn btn-dark">Let there be Cake!</button>
+        <button type="submit" class="btn">Let there be Cake!</button>
       </div>
     </form>
   </section>
