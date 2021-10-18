@@ -85,6 +85,10 @@ app.post("/order_index", (req, res) => {
   res.render("order_index");
 })
 
+app.get("/order_index", (req, res) => {
+  res.render('order_index');
+})
+
 
 /// route for order_items:
 app.get("/api/order_items", (req, res) => {
