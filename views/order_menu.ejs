@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
     <link rel="stylesheet" href="/styles/menu.css" type="text/css" />
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
 
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
@@ -25,6 +26,7 @@
 </head>
 
 <body id="menu">
+  <%- include _nav.ejs %>
     <main id="menu-main">
         <div class="mainHeadings">
             <h2>Menu</h2>
@@ -45,21 +47,49 @@
             <div class="items item1">
                 <img src="https://github.com/astarinamaulida/cravings/blob/master/doc/cake-pic1.jpeg?raw=true"
                 alt="meringue cake" width="300">
+                <div class="buttons">
+                  <button class="cart-button">
+                    <span class="add-to-cart">Add to cart</span>
+                    <i class="fa fa-shopping-cart"></i>
+                    <i class="fa fa-square"></i>
+                  </button>
+                </div>
                 <p>Cake1</p>
                 <p>$50</p>
             </div>
             <div class="items item2">
                 <img src="https://github.com/astarinamaulida/cravings/blob/master/doc/cake-pic2.jpeg?raw=true" alt="cake2" width="300">
+                <div class="buttons">
+                  <button class="cart-button">
+                    <span class="add-to-cart">Add to cart</span>
+                    <i class="fa fa-shopping-cart"></i>
+                    <i class="fa fa-square"></i>
+                  </button>
+                </div>
                 <p>cake2</p>
                 <p>$50</p>
             </div>
             <div class="items item3">
                 <img src="https://github.com/astarinamaulida/cravings/blob/master/doc/cupcake1.jpeg?raw=true" alt="cupcake1" width="300">
+                <div class="buttons">
+                  <button class="cart-button">
+                    <span class="add-to-cart">Add to cart</span>
+                    <i class="fa fa-shopping-cart"></i>
+                    <i class="fa fa-square"></i>
+                  </button>
+                </div>
                 <p>cake3</p>
                 <p>$50</p>
             </div>
             <div class="items item4">
-                <img src="https://github.com/astarinamaulida/cravings/blob/master/doc/cupcake2.jpeg?raw=true" alt="cupcake2" width="300">
+                <img src="https://github.com/astarinamaulida/cravings/blob/master/doc/cupcake2.jpeg?raw=true" alt="cupcake2" width="342">
+                <div class="buttons">
+                  <button class="cart-button">
+                    <span class="add-to-cart">Add to cart</span>
+                    <i class="fa fa-shopping-cart"></i>
+                    <i class="fa fa-square"></i>
+                  </button>
+                </div>
                 <p>cake4</p>
                 <p>$50</p>
             </div>

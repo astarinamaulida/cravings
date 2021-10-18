@@ -44,11 +44,11 @@
                 :nth-child(2) {
                     margin-top: 1em;
                 }
+                .buttons {
+                  color: 3px solid white;
+                }
             }
         }
-    } 
-    img {
-        box-shadow: 8px 8px 5px #ccc;
     }
     img:hover,
     img:focus-within {
