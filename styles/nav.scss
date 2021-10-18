@@ -1,4 +1,4 @@
-// Navigation
+// Navigation bar
 .header{
   border-bottom: 1px solid #E2E8F0;
 }
@@ -8,8 +8,20 @@
   justify-content: space-between;
   align-items: center;
   padding: 1rem 1.5rem;
-  background-color: #f3ccd2;
+  background-color: #f6d2d8;
   color: white;
+}
+
+// Brand name
+.navbar-brand {
+  margin-top: 10px;
+  font-size: 120px;
+  font-family: Sacramento, cursive;
+}
+
+.navbar img {
+  width: 200px;
+  height: 200px;
 }
 
 
@@ -46,8 +58,7 @@
 }
 
 .nav-link:hover{
-  color: #fec601
-  ;
+  color: rgb(150, 120, 125);
 }
 
 .nav-logo {
