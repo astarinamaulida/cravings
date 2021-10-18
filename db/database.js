@@ -53,12 +53,13 @@ exports.getUserByEmail = getUserByEmail;
 
 
 
-// const getAllMenu = function (menu) {
-//   return pool.query(`SELECT * FROM menu_items;
-//  `, [menu])
-//     .then(res => res.rows);
-// }
-// exports.getAllMenu = getAllMenu;
+ const getAllMenu = function(menu) {
+   return pool
+    .query(`SELECT * FROM menu_items;`, [menu])
+    .then((res) => res.rows)
+    .catch((err) => err.message)
+ };
+exports.getAllMenu = getAllMenu;
 
 
 
