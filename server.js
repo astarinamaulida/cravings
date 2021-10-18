@@ -46,7 +46,7 @@ const order_itemsRoutes = require("./routes/order_items");
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 app.use("/api/users", usersRoutes(db));
-app.use("/api/orders", ordersRoutes(db));
+// app.use("/api/orders", ordersRoutes(db));
 app.use("/api/menu_items", menu_itemsRoutes(db));
 app.use("/api/order_items", order_itemsRoutes(db));
 // Note: mount other resources here, using the same pattern above
