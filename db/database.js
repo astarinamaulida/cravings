@@ -54,11 +54,15 @@ exports.getUserByEmail = getUserByEmail;
 
 
 // HEAD
-const getAllMenu = function (menu) {
+/* const getAllMenu = function (menu) {
   return pool.query(`SELECT * FROM menu_items;
  `, [menu])
     .then(res => res.rows);
+<<<<<<< HEAD
 }
+=======
+} */
+>>>>>>> 6a45f14a53c5293c6fd0a76a7226456c308408f0
 
  const getAllMenu = function(menu) {
    return pool
@@ -66,7 +70,11 @@ const getAllMenu = function (menu) {
     .then((res) => res.rows)
     .catch((err) => err.message)
  };
+<<<<<<< HEAD
 // 9cacb9433e2857e889e7093c3bac8cd9c072836d
+=======
+
+>>>>>>> 6a45f14a53c5293c6fd0a76a7226456c308408f0
 exports.getAllMenu = getAllMenu;
 
 
