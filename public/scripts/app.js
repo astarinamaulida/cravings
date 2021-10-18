@@ -1,13 +1,8 @@
 // Client facing scripts here
 
 const createMenu = function (menu_items) {
-<<<<<<< HEAD
-return (
-  ` <article  >
-=======
 return $(
-  ` <article class="page">
->>>>>>> 9cacb9433e2857e889e7093c3bac8cd9c072836d
+  ` <article class=">
       <div class="card-header menu-title-price">
 
         <div class="menu_items-title" value="${menu_items.id}">
