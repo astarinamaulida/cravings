@@ -53,7 +53,7 @@ exports.getUserByEmail = getUserByEmail;
 
 
 
-<<<<<<< HEAD
+// HEAD
 const getAllMenu = function (menu) {
   return pool.query(`SELECT * FROM menu_items;
  `, [menu])
