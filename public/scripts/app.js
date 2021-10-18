@@ -4,7 +4,6 @@ const createMenu = function (menu_items) {
 return $(
   `
 <div class="browse-all">
-  <h3>Browse All</h3>
   <div class="browse-all-img">
       <div class="items item1">
           <img src="${menu_items.thumbnail_url}"
