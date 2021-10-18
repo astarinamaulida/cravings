@@ -2,7 +2,7 @@
 
 const createMenu = function (menu_items) {
 return $(
-  ` <article class=">
+  ` <article class="browse-all-img">
       <div class="card-header menu-title-price">
 
         <div class="menu_items-title" value="${menu_items.id}">
@@ -10,13 +10,13 @@ return $(
         </div>
 
         <div class="menu_items-price">
-        <h5>$${menu_items.price}</h5>
+        <h5>$${menu_items.unit_price}</h5>
         </div>
 
       </div>
 
       <div class="menu_items__flex">
-        <img class="menu_items-image inline" src="${menu_items.photo}" alt="cake">
+        <img class="menu_items-image inline" src="${menu_items.thumbnail_url}" alt="cake">
         <div class="card-body">
         <p class="card-text ">
         ${menu_items.description}

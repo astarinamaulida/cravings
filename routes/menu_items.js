@@ -11,7 +11,7 @@ const getAllMenu = require('../db/database')
 
 module.exports = (db) => {
   router.get("/", (req, res) => {
-    db.query(`SELECT * FROM menu_items;`)
+    db.query(`SELECT * FROM menu_items`)
       .then(data => {
         const menu_items = data.rows;
         res.send({ menu_items });
