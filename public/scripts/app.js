@@ -1,8 +1,8 @@
 // Client facing scripts here
 
 const createMenu = function (menu_items) {
-return (
-  ` <article class= >
+return $(
+  ` <article class="page">
       <div class="card-header menu-title-price">
 
         <div class="menu_items-title" value="${menu_items.id}">
@@ -45,7 +45,7 @@ const renderMenu = function(items){
 $(() => {
   $.ajax({
     method: "GET",
-    url: "/api/menu_items"
+    url: "/menu_items"
   }).done((response) => {
     renderMenu(response.menu_items)
   })

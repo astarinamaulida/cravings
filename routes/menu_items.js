@@ -9,12 +9,13 @@ const express = require('express');
 const router  = express.Router();
 
 module.exports = (db) => {
-  router.get("/order_menu", (req, res) => {
+  router.get("/", (req, res) => {
+    console.log('we are in the right router')
     db.query(`SELECT * FROM menu_items;`)
       .then(data => {
         const menu_items = data.rows;
-        res.json({ menu_items });
-        console.log(menu_items)
+        res.send({ menu_items });
+        console.log('check:'+ menu_items)
       })
       .catch(err => {
         res
