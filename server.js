@@ -80,11 +80,18 @@ app.get("/order_menu", (req, res) => {    ///need to change (for order_items) th
   res.render("order_menu");
 })
 
+app.post("/order_index", (req, res) => {
+  console.log(req.body);
+  console.log(req.params);
+  res.render('order_index');
+})
+
 
 /// route for order_items:
 app.get("/api/order_items", (req, res) => {
   // req.session.order_items = order_items;   ???? is expression correct ?
 });
+
 
 ///LOGIN page? if we do sign up , then should be something like this :
 
