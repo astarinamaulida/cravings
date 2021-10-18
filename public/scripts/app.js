@@ -2,7 +2,7 @@
 
 const createMenu = function (menu_items) {
 return (
-  ` <article class= >
+  ` <article  >
       <div class="card-header menu-title-price">
 
         <div class="menu_items-title" value="${menu_items.id}">

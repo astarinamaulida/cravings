@@ -7,6 +7,7 @@
 
 const express = require('express');
 const router  = express.Router();
+const getAllMenu = require('../db/database')
 
 module.exports = (db) => {
   router.get("/", (req, res) => {
