@@ -8,6 +8,11 @@ return $(
       <div class="items item1">
           <img src="${menu_items.thumbnail_url}"
           alt="${menu_items.name}" width="300">
+          <div class="item-info">
+          <p>${menu_items.name}</p>
+          <p>${menu_items.description}</p>
+          <p>$${menu_items.unit_price}</p>
+          </div>
           <div class="buttons">
             <button class="cart-button">
               <span class="add-to-cart">Add to cart</span>
@@ -15,9 +20,6 @@ return $(
               <i class="fa fa-square"></i>
             </button>
           </div>
-          <p>${menu_items.name}</p>
-          <p>${menu_items.description}</p>
-          <p>$${menu_items.unit_price}</p>
       </div>
   </div>
 </div>`
