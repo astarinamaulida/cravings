@@ -54,11 +54,11 @@ exports.getUserByEmail = getUserByEmail;
 
 
 // HEAD
-const getAllMenu = function (menu) {
+/* const getAllMenu = function (menu) {
   return pool.query(`SELECT * FROM menu_items;
  `, [menu])
     .then(res => res.rows);
-}
+} */
 
  const getAllMenu = function(menu) {
    return pool
