@@ -1,7 +1,7 @@
 /*
- * All routes for Widgets are defined here
- * Since this file is loaded in server.js into api/widgets,
- *   these routes are mounted onto /widgets
+ * All routes for menu_items are defined here
+ * Since this file is loaded in server.js into api/menu_items ,
+ *   these routes are mounted onto /menu_items 
  * See: https://expressjs.com/en/guide/using-middleware.html#middleware.router
  */
 
