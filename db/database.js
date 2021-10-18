@@ -11,10 +11,10 @@
 
 const { Pool } = require('pg');
 const pool = new Pool({
- user: 'vagrant', //'labber'
- password: '123', //'labber'
+ user: 'labber', //'labber'
+ password: 'labber', //'labber'
  host: 'localhost', //'localhost'
- database: 'cravingsdb'
+ database: 'midterm'
 });
 
 
