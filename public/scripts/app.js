@@ -1,16 +1,5 @@
 // Client facing scripts here
 
-const chooseCake = function (cake) {
-  const cakeChosen = $(".items").click(cake);
-  if (cakeChosen) {
-    $('.items').clone();
-    console.log($('.items').clone());
-
-  }
-}
-
-
-
 const createMenu = function (menu_items) {
   // console.log(menu_items);
 return $(
@@ -25,10 +14,9 @@ return $(
           <p>${menu_items.description}</p>
           <p>$${menu_items.unit_price}</p>
           </div>
-          <div class="buttons">
-            <form method="POST" action="/order_add_cart">
-              <button type="submit" class="cart-button">
-              Add to cart
+          <div class="buttons afterSignUp beforeSignUp">
+            <button class="cart-button">
+              <span class="add-to-cart">Add to cart</span>
             </button>
             <input type="hidden" name="item" value="${menu_items.id}">
           </div>
@@ -38,11 +26,24 @@ return $(
   )
 }
 
+const addCartToggle = function (id) {
+  const afterSignUp = $('.afterSignUp');
+  const beforeSignUp = $('.beforeSignUp');
+  if (req.session.user_id === id) {
+    return $('.buttons').toggleClass('afterSignUp');
+  } else {
+    return $('.buttons').toggleClass('beforeSignUp');
+  }
+}
+
+
+
 const renderMenu = function(items){
   const containerMenu = $('#menu-items');
   // console.log(items);
   items.forEach((menu_items) => {
-    containerMenu.append(createMenu(menu_items))
+    containerMenu.append(createMenu(menu_items));
+    addCartToggle;
   })
 }
 
