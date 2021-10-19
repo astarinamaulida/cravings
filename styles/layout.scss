@@ -53,10 +53,13 @@ html {
   }
   #menu {
     width: 100%;
+    margin: 0;
+    padding: 0;
     #menu-items {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
-      width: 100%;
+      grid-gap: 2em;
+      width: 95%;
     }
     .browse-all {
       margin: 2em 3em;
