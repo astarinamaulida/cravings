@@ -9,6 +9,7 @@ const express = require('express');
 const router  = express.Router();
 
 
+
 module.exports = (db) => {
   router.get("/", (req, res) => {
     db.query(`SELECT * FROM users;`)
@@ -32,7 +33,8 @@ module.exports = (db) => {
             VALUES ($1, $2, $3)
             RETURNING *`, [user.username, user.phoneNumber, false])
           .then((result) => {
-            req.session.userId = result.rows[0].id;
+            console.log(result.row[0]);
+            req.session.user_id = result.rows[0];
             return result.rows[0];
           })
           .catch((err) => {
@@ -43,5 +45,23 @@ module.exports = (db) => {
       addUser(user);
       res.redirect("/order_index");
     })
+
+    // router.get("/order_index", (req, res) => {
+    //   const getUserWithPhone = function (phone) {
+    //     return db
+    //       .query(`SELECT name, phone FROM users WHERE phone = $1`, [phone])
+    //       .then((result) => {
+    //         return result.rows[0];
+    //       })
+    //       .catch((err) => {
+    //         console.log(err.message);
+    //       });
+    //   }
+    //   getUserWithPhone;
+    //   // if (!getUserWithPhone) {
+    //   //   return res.redirect('/order_signup');
+    //   // }
+    //   res.render('order_index');
+    // })
   return router;
 };
