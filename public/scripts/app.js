@@ -29,17 +29,20 @@ const addCartToggle = function (id) {
   const afterSignUp = $('.afterSignUp');
   const beforeSignUp = $('.beforeSignUp');
   if (req.session.user_id === id) {
-    $('.buttons').toggleClass('afterSignUp');
+    return $('.buttons').toggleClass('afterSignUp');
   } else {
-    $('.buttons').toggleClass('beforeSignUp');
+    return $('.buttons').toggleClass('beforeSignUp');
   }
 }
+
+
 
 const renderMenu = function(items){
   const containerMenu = $('#menu-items');
   // console.log(items);
   items.forEach((menu_items) => {
-    containerMenu.append(createMenu(menu_items))
+    containerMenu.append(createMenu(menu_items));
+    addCartToggle;
   })
 }
 
