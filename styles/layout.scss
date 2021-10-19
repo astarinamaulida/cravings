@@ -53,6 +53,11 @@ html {
   }
   #menu {
     width: 100%;
+    #menu-items {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      width: 100%;
+    }
     .browse-all {
       margin: 2em 3em;
       width: 100%;
@@ -61,9 +66,12 @@ html {
       }
       .browse-all-img {
           width: 95%;
-          justify-content: start;
+          justify-content: space-evenly;
           .items {
-            flex-direction: row;
+            img {
+              box-shadow: 8px 8px 6px #c9aaaa;
+              border-radius: 5px 2em 5px 2em;
+            }
             .item-info {
               margin: 2em;
               text-align-last: left;

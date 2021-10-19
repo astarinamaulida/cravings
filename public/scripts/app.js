@@ -1,7 +1,18 @@
 // Client facing scripts here
 
+const chooseCake = function (cake) {
+  const cakeChosen = $(".items").click(cake);
+  if (cakeChosen) {
+    $('.items').clone();
+    console.log($('.items').clone());
+
+  }
+}
+
+
+
 const createMenu = function (menu_items) {
-  console.log(menu_items);
+  // console.log(menu_items);
 return $(
   `
 <div class="browse-all">
@@ -17,8 +28,6 @@ return $(
           <div class="buttons">
             <button class="cart-button">
               <span class="add-to-cart">Add to cart</span>
-              <i class="fa fa-shopping-cart"></i>
-              <i class="fa fa-square"></i>
             </button>
           </div>
       </div>
@@ -29,7 +38,7 @@ return $(
 
 const renderMenu = function(items){
   const containerMenu = $('#menu-items');
-  console.log(items);
+  // console.log(items);
   items.forEach((menu_items) => {
     containerMenu.append(createMenu(menu_items))
   })
