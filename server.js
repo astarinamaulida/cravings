@@ -81,7 +81,9 @@ app.get("/order_signup", (req, res) => {
 });
 
 app.get("/order_menu", (req, res) => {    ///need to change (for order_items) the name of the endpoint accordingly our routes above
-  res.render("order_menu");
+  const user = req.session.user_id;
+  const templateVars = { user };
+  res.render("order_menu", templateVars);
 })
 
 app.get("/order_index", (req, res) => {
