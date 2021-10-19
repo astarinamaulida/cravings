@@ -10,6 +10,10 @@ const bodyParser = require('body-parser');
 const morgan = require("morgan");
 
 const cookieSession = require('cookie-session');
+app.use(cookieSession({
+  name: 'user_id',
+  keys: ['a long long hard to crack key', 'a much longer key to crack']
+}));
 
 //TWILIO SMS API:
 // Download the helper library from https://www.twilio.com/docs/node/install
@@ -27,6 +31,7 @@ const cookieSession = require('cookie-session');
 const { Pool } = require("pg");
 const dbParams = require("./lib/db.js");
 const db = new Pool(dbParams);
+
 db.connect();
 
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
@@ -71,23 +76,44 @@ app.get("/", (req, res) => {
 });
 
 app.get("/order_signup", (req, res) => {
-  res.render("order_signup");
-/// do we need req.session UserCookie in here????
-
+  const templateVars = { user: null };
+  res.render("order_signup", templateVars);
 });
+
+app.post("/order_signup", (req, res) => {
+  const addUser = function (user) {
+    return db
+      .query(`INSERT INTO users (name, phone, is_restaurant_crew) 
+        VALUES ($1, $2, $3)
+        RETURNING *`, [user.name, user.phoneNumber, false])
+      .then((result) => {
+        return result.rows[0];
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+  }
+  const user = req.body;
+  addUser(user);
+  req.session.userId = user.id;
+  res.redirect("/order_index");
+})
 
 app.get("/order_menu", (req, res) => {    ///need to change (for order_items) the name of the endpoint accordingly our routes above
   res.render("order_menu");
 })
 
-app.post("/order_index", (req, res) => {
-  console.log(req.body);
-  res.render("order_index");
-})
-
 app.get("/order_index", (req, res) => {
+  // if (!username || !phoneNum) {
+  //   alert('Error 403. We need your info to SMS you when order is ready.');
+  //   return;
+  // }
   res.render('order_index');
 })
+
+
+
+
 
 
 /// route for order_items:

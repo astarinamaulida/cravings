@@ -23,5 +23,23 @@ module.exports = (db) => {
           .json({ error: err.message });
       });
   });
+
+  // Create a new user
+  router.post('/order_signup', (req, res) => {
+    console.log(req.body);
+    const user = req.body;
+    username = user.username;
+    userNum = user.phoneNumber;
+    app.addUser(user)
+    .then(user => {
+      if (!user) {
+        res.send({error: "error"});
+        return;
+      }
+      req.session.userId = user.id;
+      res.send("🤗");
+    })
+    .catch(e => res.send(e));
+  });
   return router;
 };
