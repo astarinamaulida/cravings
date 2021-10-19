@@ -19,7 +19,7 @@ return $(
   <div class="browse-all-img">
       <div class="items item1">
           <img src="${menu_items.thumbnail_url}"
-          alt="${menu_items.name}" width="300">
+          alt="${menu_items.name}">
           <div class="item-info">
           <p>${menu_items.name}</p>
           <p>${menu_items.description}</p>
