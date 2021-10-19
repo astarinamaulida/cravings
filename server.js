@@ -61,7 +61,10 @@ app.use("/users", usersRoutes(db));
 // app.use("/api/orders", ordersRoutes(db));
 app.use("/menu_items", menu_itemsRoutes(db));
 app.use("/order_items", order_itemsRoutes(db));
-// Note: mount other resources here, using the same pattern above
+
+app.use("/sms", smsRoutes(client, db));
+app.use("/sms/sms-response", smsRoutes());
+
 
 // Home page
 // Warning: avoid creating more routes in this file! Separate them into separate routes files (see above).
@@ -82,9 +85,11 @@ app.get("/order_menu", (req, res) => {    ///need to change (for order_items) th
 
 
 /// route for order_items:
-app.get("/api/order_items", (req, res) => {
+app.get("/order_items", (req, res) => {
   // req.session.order_items = order_items;   ???? is expression correct ?
 });
+
+
 
 ///LOGIN page? if we do sign up , then should be something like this :
 
