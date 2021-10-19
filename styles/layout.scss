@@ -73,8 +73,10 @@ html {
               border-radius: 5px 2em 5px 2em;
             }
             .item-info {
-              margin: 2em;
-              text-align-last: left;
+              // margin: 2em;
+              :nth-child(1) {
+                margin-top: 2em;
+              }
             }
           }
       }
