@@ -19,16 +19,18 @@ return $(
   <div class="browse-all-img">
       <div class="items item1">
           <img src="${menu_items.thumbnail_url}"
-          alt="${menu_items.name}">
+          alt="${menu_items.name}" width="300">
           <div class="item-info">
           <p>${menu_items.name}</p>
           <p>${menu_items.description}</p>
           <p>$${menu_items.unit_price}</p>
           </div>
           <div class="buttons">
-            <button class="cart-button">
-              <span class="add-to-cart">Add to cart</span>
+            <form method="POST" action="/order_add_cart">
+              <button type="submit" class="cart-button">
+              Add to cart
             </button>
+            <input type="hidden" name="item" value="${menu_items.id}">
           </div>
       </div>
   </div>
@@ -67,6 +69,8 @@ $(() => {
 //   })
 // });
 
+//////////// ADD TO CART ////////////
+
 const createOrder = function (order) {
   return (`
     <tr>
@@ -76,6 +80,26 @@ const createOrder = function (order) {
     </tr>
   `)
 };
+
+
+const renderOrder = function(items){
+  const containerOrder = $('#order_items');
+  // console.log(items);
+  items.forEach((order_items) => {
+    containerOrder.append(createOrder(order_items))
+  })
+}
+
+$(() => {
+  $.ajax({
+    method: "GET",
+    url: "/order_items"
+  }).done((response) => {
+    renderOrder(response.order_items)
+  })
+
+});
+
 
 // const renderOrder = function (orders) {
 // $("#order_items_container").append(
