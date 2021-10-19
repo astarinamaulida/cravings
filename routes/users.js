@@ -28,13 +28,14 @@ module.exports = (db) => {
   // Create a new user
   router.post('/order_signup', (req, res) => {
       const addUser = function (user) {
+        console.log('%%%%%% user', user);
         return db
           .query(`INSERT INTO users (name, phone, is_restaurant_crew) 
             VALUES ($1, $2, $3)
             RETURNING *`, [user.username, user.phoneNumber, false])
           .then((result) => {
-            console.log(result.row[0]);
-            req.session.user_id = result.rows[0];
+            console.log('result.rows[0]********', result.rows[0]);
+            req.session.user_id = result.rows[0].id;
             return result.rows[0];
           })
           .catch((err) => {
@@ -42,8 +43,11 @@ module.exports = (db) => {
           });
       }
       const user = req.body;
-      addUser(user);
-      res.redirect("/order_index");
+      addUser(user).then((newUser) => {
+        console.log('!!!!!!!!!newUser', newUser);
+        req.session.user_id = newUser.id;
+        res.redirect("/order_index");
+      })
     })
 
     // router.get("/order_index", (req, res) => {

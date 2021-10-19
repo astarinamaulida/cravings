@@ -1,16 +1,5 @@
 // Client facing scripts here
 
-const chooseCake = function (cake) {
-  const cakeChosen = $(".items").click(cake);
-  if (cakeChosen) {
-    $('.items').clone();
-    console.log($('.items').clone());
-
-  }
-}
-
-
-
 const createMenu = function (menu_items) {
   // console.log(menu_items);
 return $(
@@ -25,7 +14,7 @@ return $(
           <p>${menu_items.description}</p>
           <p>$${menu_items.unit_price}</p>
           </div>
-          <div class="buttons">
+          <div class="buttons afterSignUp beforeSignUp">
             <button class="cart-button">
               <span class="add-to-cart">Add to cart</span>
             </button>
@@ -34,6 +23,16 @@ return $(
   </div>
 </div>`
   )
+}
+
+const addCartToggle = function (id) {
+  const afterSignUp = $('.afterSignUp');
+  const beforeSignUp = $('.beforeSignUp');
+  if (req.session.user_id === id) {
+    $('.buttons').toggleClass('afterSignUp');
+  } else {
+    $('.buttons').toggleClass('beforeSignUp');
+  }
 }
 
 const renderMenu = function(items){

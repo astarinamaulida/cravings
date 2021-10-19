@@ -87,9 +87,9 @@ app.get("/order_menu", (req, res) => {    ///need to change (for order_items) th
 app.get("/order_index", (req, res) => {
   const user = req.session.user_id;
   const templateVars = { user };
-  // if (!user) {
-  //   res.redirect('/order_signup');
-  // }
+  if (!user) {
+    return res.redirect('/order_signup');
+  }
   res.render("order_index", templateVars);
 });
 
