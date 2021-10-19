@@ -91,18 +91,25 @@ app.get("/order_items", (req, res) => {
 
 
 
-///LOGIN page? if we do sign up , then should be something like this :
-
-// app.get("/login/:user_email", (req, res) => {
-//   let userEmail = req.params.user_email;
-//   if (getUserByEmail(userEmail, db)) {
-//     req.session.userCookie = userEmail;
-//     //console.log(req.session.userCookie);
-//     res.redirect("/");
+// $("#ORDER-button").click(function (e) {
+//   e.preventDefault();
+// $.ajax({
+//   method: 'POST',
+//   url: "/orders",
+//   data: {
+//     userOrder: output
 //   }
-// });
-
-
+//}).then((response) => {
+//      $.ajax({
+//        method: 'POST',
+//        url: "/sms",
+//        data: {
+//          response: response.order_items
+//        }
+//      })
+//      renderOrder(response.order_items);
+//    });
+//})
 
 
 

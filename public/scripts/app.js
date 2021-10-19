@@ -43,17 +43,6 @@ $(() => {
 });
 
 
-// do we need render users???
-// $(() => {
-//   $.ajax({
-//     method: "GET",
-//     url: "/api/users"
-//   }).done((response) => {
-
-//     console.log(response.rows);
-//     response.rows;
-//   })
-// });
 
 const createOrder = function (order) {
   return (`
@@ -80,13 +69,22 @@ $("#order_items_container").append(
     </tr>
     </thead>
 
-    <tbody class='order-table-body'>
+    <tbody class='order-table'>
     </tbody>
 
     </table>`
 );
 
+
 // another logic here:
+//  const containerMenu = $('order-table')
 
+//   orders.forEach((order) => {
+//     containerMenu.append(createMenu(menu_items))
+//     if (order.quantity > 0) {
+//       totalPrice += order.price * order.quantity;
 
+//     }
+//     containerMenu.append(createOrder(order))
+//   })
 }
