@@ -1,6 +1,7 @@
 // Client facing scripts here
 
 const createMenu = function (menu_items) {
+  console.log(menu_items);
 return $(
   `
 <div class="browse-all">
@@ -28,11 +29,11 @@ return $(
 
 const renderMenu = function(items){
   const containerMenu = $('#menu-items');
+  console.log(items);
   items.forEach((menu_items) => {
     containerMenu.append(createMenu(menu_items))
   })
 }
-
 
 $(() => {
   $.ajax({

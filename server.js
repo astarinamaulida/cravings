@@ -80,34 +80,17 @@ app.get("/order_signup", (req, res) => {
   res.render("order_signup", templateVars);
 });
 
-app.post("/order_signup", (req, res) => {
-  const addUser = function (user) {
-    return db
-      .query(`INSERT INTO users (name, phone, is_restaurant_crew) 
-        VALUES ($1, $2, $3)
-        RETURNING *`, [user.name, user.phoneNumber, false])
-      .then((result) => {
-        return result.rows[0];
-      })
-      .catch((err) => {
-        console.log(err.message);
-      });
-  }
-  const user = req.body;
-  addUser(user);
-  req.session.userId = user.id;
-  res.redirect("/order_index");
-})
+
 
 app.get("/order_menu", (req, res) => {    ///need to change (for order_items) the name of the endpoint accordingly our routes above
   res.render("order_menu");
 })
 
 app.get("/order_index", (req, res) => {
-  // if (!username || !phoneNum) {
-  //   alert('Error 403. We need your info to SMS you when order is ready.');
-  //   return;
-  // }
+  if (!req.session.userId) {
+    res.redirect('/order_signup');
+    return;
+  }
   res.render('order_index');
 })
 

@@ -26,20 +26,22 @@ module.exports = (db) => {
 
   // Create a new user
   router.post('/order_signup', (req, res) => {
-    console.log(req.body);
-    const user = req.body;
-    username = user.username;
-    userNum = user.phoneNumber;
-    app.addUser(user)
-    .then(user => {
-      if (!user) {
-        res.send({error: "error"});
-        return;
+      const addUser = function (user) {
+        return db
+          .query(`INSERT INTO users (name, phone, is_restaurant_crew) 
+            VALUES ($1, $2, $3)
+            RETURNING *`, [user.username, user.phoneNumber, false])
+          .then((result) => {
+            req.session.userId = result.rows[0].id;
+            return result.rows[0];
+          })
+          .catch((err) => {
+            console.log(err.message);
+          });
       }
-      req.session.userId = user.id;
-      res.send("🤗");
+      const user = req.body;
+      addUser(user);
+      res.redirect("/order_index");
     })
-    .catch(e => res.send(e));
-  });
   return router;
 };
