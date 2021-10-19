@@ -2,6 +2,9 @@
 
 const createMenu = function (menu_items) {
   // console.log(menu_items);
+  const $body = $(document.body);
+  const isSignIn = $body.data('is_sign_in');
+  console.log($body.data());
 return $(
   `
 <div class="browse-all">
@@ -14,7 +17,7 @@ return $(
           <p>${menu_items.description}</p>
           <p>$${menu_items.unit_price}</p>
           </div>
-          <div class="buttons afterSignUp beforeSignUp">
+          <div class="buttons ${isSignIn ? 'afterSignUp' : 'beforeSignUp'}">
             <button class="cart-button">
               <span class="add-to-cart">Add to cart</span>
             </button>
@@ -26,8 +29,7 @@ return $(
 }
 
 const addCartToggle = function (id) {
-  const afterSignUp = $('.afterSignUp');
-  const beforeSignUp = $('.beforeSignUp');
+
   if (req.session.user_id === id) {
     return $('.buttons').toggleClass('afterSignUp');
   } else {
