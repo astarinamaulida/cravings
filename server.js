@@ -62,8 +62,8 @@ app.use("/users", usersRoutes(db));
 app.use("/menu_items", menu_itemsRoutes(db));
 app.use("/order_items", order_itemsRoutes(db));
 
-app.use("/sms", smsRoutes(client, db));
-app.use("/sms/sms-response", smsRoutes());
+// app.use("/sms", smsRoutes(client, db));
+// app.use("/sms/sms-response", smsRoutes());
 
 
 // Home page
