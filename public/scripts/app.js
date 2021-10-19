@@ -77,29 +77,29 @@ const createOrder = function (order) {
   `)
 };
 
-const renderOrder = function (orders) {
-$("#order_items_container").append(
-  `<table class="order-table-main">
-    <thead>
-    <tr>
-      <th>Your order : </th>
-      <th class='meal_prep_eta'></th>
-    </tr>
-    <tr>
-      <th>Item name</th>
-      <th>Quantity</th>
-      <th>Price</th>
-    </tr>
-    </thead>
+// const renderOrder = function (orders) {
+// $("#order_items_container").append(
+//   `<table class="order-table-main">
+//     <thead>
+//     <tr>
+//       <th>Your order : </th>
+//       <th class='meal_prep_eta'></th>
+//     </tr>
+//     <tr>
+//       <th>Item name</th>
+//       <th>Quantity</th>
+//       <th>Price</th>
+//     </tr>
+//     </thead>
 
-    <tbody class='order-table-body'>
-    </tbody>
+//     <tbody class='order-table-body'>
+//     </tbody>
 
-    </table>`
-);
+//     </table>`
+// );
 
-// another logic here:
+// // another logic here:
 
 
 
-}
+// }
