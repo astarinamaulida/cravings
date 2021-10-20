@@ -5,33 +5,25 @@
 const { Router } = require('express');
 const accountSid = process.env.TWILIO_ACCOUNT_SID;
 const authToken = process.env.TWILIO_AUTH_TOKEN;
-const client = require('twilio')('AC7ea74d71de54f739088cd9dd81557de4', 'fc7b91a59b59d83051ce6d84b17f5f71');
+const client = require('twilio')(accountSid, authToken);
 
-module.exports = (client,db) => {
+const sendSMS = (from,to,body) =>{
 
-  // for rest:
-  router.post("/",(req,res) =>{
-    let query = `SELECT FROM ...`
-      db.query(query)
-      .then(data => {
-
-
-        client.messages
-        .create({
-          body: `You received  order: ${newOrderMsg} .`,
-          from: '+12494881210',
-          to: '+14379228484'
-        })
-        .then(message => console.log('MESSAGE WAS SENT', message.sid))
-      });
-
-
+  client.messages
+  .create({
+    body ,
+    from ,
+    to
   })
+  .then(message => console.log('MESSAGE WAS SENT', message.sid))
 
 
-
-  return router;
 }
+
+module.exports = sendSMS;
+
+
+
 
 
 

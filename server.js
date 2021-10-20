@@ -58,10 +58,11 @@ const order_itemsRoutes = require("./routes/order_items");
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 app.use("/users", usersRoutes(db));
-// app.use("/api/orders", ordersRoutes(db));
+// app.use("/orders", ordersRoutes(db));
 app.use("/menu_items", menu_itemsRoutes(db));
 app.use("/order_items", order_itemsRoutes(db));
 
+// const smsRoutes = require("./routes/sms");
 // app.use("/sms", smsRoutes(client, db));
 // app.use("/sms/sms-response", smsRoutes());
 
@@ -86,30 +87,11 @@ app.get("/order_menu", (req, res) => {    ///need to change (for order_items) th
 
 /// route for order_items:
 app.get("/order_items", (req, res) => {
-  // req.session.order_items = order_items;   ???? is expression correct ?
+
 });
 
 
 
-// $("#ORDER-button").click(function (e) {
-//   e.preventDefault();
-// $.ajax({
-//   method: 'POST',
-//   url: "/orders",
-//   data: {
-//     userOrder: output
-//   }
-//}).then((response) => {
-//      $.ajax({
-//        method: 'POST',
-//        url: "/sms",
-//        data: {
-//          response: response.order_items
-//        }
-//      })
-//      renderOrder(response.order_items);
-//    });
-//})
 
 
 
