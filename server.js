@@ -96,7 +96,9 @@ app.get("/order_index", (req, res) => {
   }
   res.render("order_index", templateVars);
 });
-
+app.get("/cart", (req, res) => {
+  res.render("cart");
+})
 
 // POST ADD TO CART BUTTON TO CHECKOUT CART (USING NEW PATH ORDER_ITEMS SO IT WON'T DISTURB ORDER_INDEX)
 
