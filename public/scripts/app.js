@@ -1,8 +1,22 @@
 // Client facing scripts here
+const addCart = function (id, name, description, unitPrice, thumbnail) {
+  console.log('id', id);
+  console.log('unitPrice', unitPrice);
+  console.log('description', name);
+  console.log('description', description);
+  console.log('description', thumbnail);
+  let products = [];
+  if (localStorage.getItem('products')) {
+    products = JSON.parse(localStorage.getItem('products'));
+  }
+  products.push({ 'productId': id, 'productName': name, 'productDescription': description, 'productUnitPrice': unitPrice, 'productThumbnail': thumbnail });
+  localStorage.setItem('products', JSON.stringify(products));
+}
 
 const createMenu = function (menu_items) {
   const $body = $(document.body);
   const isSignIn = $body.data('is_sign_in');
+  console.log('menu_items', typeof menu_items.name);
   return $(
     `
 <div class="browse-all">
@@ -17,7 +31,7 @@ const createMenu = function (menu_items) {
           <p>$${menu_items.unit_price}</p>
           </div>
           <div class="buttons ${isSignIn ? 'afterSignUp' : 'beforeSignUp'}">
-            <button onclick="addCart(${menu_items.id}, ${menu_items.unit_price})">
+            <button onclick="addCart(${menu_items.id}, \'${menu_items.name}\', \'${menu_items.description}\', ${menu_items.unit_price}, \'${menu_items.thumbnail_url}\')">
               <span>Add to cart</span>
             </button>
           </div>
@@ -27,24 +41,6 @@ const createMenu = function (menu_items) {
   `)
 }
 
-const addCart = function (id, unitPrice) {
-  let products = [];
-  let $total = 0;
-  if (localStorage.getItem('products')) {
-    products = JSON.parse(localStorage.getItem('products'));
-  }
-  products.push({ 'productId': id, 'productUnitPrice': unitPrice });
-  localStorage.setItem('products', JSON.stringify(products));
-  let $container = `
-  <tr>
-      <td>${id}</td>
-      <td>${unitPrice}</td>
-    </tr>
-  `
-  $("#order-items").append($container);
-  $total = $total + parseFloat(unitPrice)
-  $(".totals-value").html($total)
-}
 
 const renderMenu = function (items) {
   const containerMenu = $('#menu-items');
@@ -61,8 +57,7 @@ $(() => {
   }).done((response) => {
     renderMenu(response.menu_items);
   })
-  $("#order-items").append(localStorage.getItem('products'));
-
+  
   // $.ajax({
   //   method: "POST",
   //   url: "/order_items"
