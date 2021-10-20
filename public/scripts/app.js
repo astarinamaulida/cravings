@@ -1,6 +1,10 @@
 // Client facing scripts here
 
 const createMenu = function (menu_items) {
+  // console.log(menu_items);
+  const $body = $(document.body);
+  const isSignIn = $body.data('is_sign_in');
+  console.log($body.data());
 return $(
   `
 <div class="browse-all">
@@ -8,29 +12,42 @@ return $(
       <div class="items item1">
           <img src="${menu_items.thumbnail_url}"
           alt="${menu_items.name}" width="300">
-          <div class="buttons">
-            <button class="cart-button">
-              <span class="add-to-cart">Add to cart</span>
-              <i class="fa fa-shopping-cart"></i>
-              <i class="fa fa-square"></i>
-            </button>
-          </div>
+          <div class="item-info">
           <p>${menu_items.name}</p>
           <p>${menu_items.description}</p>
           <p>$${menu_items.unit_price}</p>
+          </div>
+          <div class="buttons ${isSignIn ? 'afterSignUp' : 'beforeSignUp'}">
+            <button class="cart-button">
+              <span class="add-to-cart">Add to cart</span>
+            </button>
+            <input type="hidden" name="item" value="${menu_items.id}">
+          </div>
       </div>
   </div>
 </div>`
   )
 }
 
-const renderMenu = function(items){
-  const containerMenu = $('#menu-items');
-  items.forEach((menu_items) => {
-    containerMenu.append(createMenu(menu_items))
-  })
+const addCartToggle = function (id) {
+
+  if (req.session.user_id === id) {
+    return $('.buttons').toggleClass('afterSignUp');
+  } else {
+    return $('.buttons').toggleClass('beforeSignUp');
+  }
 }
 
+
+
+const renderMenu = function(items){
+  const containerMenu = $('#menu-items');
+  // console.log(items);
+  items.forEach((menu_items) => {
+    containerMenu.append(createMenu(menu_items));
+    addCartToggle;
+  })
+}
 
 $(() => {
   $.ajax({
@@ -44,6 +61,8 @@ $(() => {
 
 
 
+//////////// ADD TO CART ////////////
+
 const createOrder = function (order) {
   return (`
     <tr>
@@ -54,26 +73,10 @@ const createOrder = function (order) {
   `)
 };
 
-const renderOrder = function (orders) {
-$("#order_items_container").append(
-  `<table class="order-table-main">
-    <thead>
-    <tr>
-      <th>Your order : </th>
-      <th class='meal_prep_eta'></th>
-    </tr>
-    <tr>
-      <th>Item name</th>
-      <th>Quantity</th>
-      <th>Price</th>
-    </tr>
-    </thead>
 
     <tbody class='order-table'>
     </tbody>
 
-    </table>`
-);
 
 
 // another logic here:
@@ -87,4 +90,4 @@ $("#order_items_container").append(
 //     }
 //     containerMenu.append(createOrder(order))
 //   })
-}
+

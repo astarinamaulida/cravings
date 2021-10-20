@@ -4,19 +4,23 @@
 }
 
 .navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 1.5rem;
+  // display: flex;
+  // justify-content: space-between;
+  // align-items: center;
+  // padding: .5rem 1.5rem;
   background-color: #f6d2d8;
   color: white;
+  // width: 100%;
+  // margin: auto 0;
+  // height: 35vh;
 }
 
 // Brand name
 .navbar-brand {
-  margin-top: 10px;
-  font-size: 120px;
+  margin-top: 30px;
+  font-size: 80px;
   font-family: Sacramento, cursive;
+  line-height: 2em;
 }
 
 .navbar img {
