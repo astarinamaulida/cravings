@@ -78,17 +78,17 @@ app.get("/order_menu", (req, res) => {    ///need to change (for order_items) th
   res.render("order_menu", templateVars);
 })
 
-app.get("/order_index", (req, res) => {
+app.get("/cart", (req, res) => {
   const user = req.session.user_id;
   const templateVars = { user };
   if (!user) {
     return res.redirect('/order_signup');
   }
-  res.render("order_index", templateVars);
+  res.render("cart", templateVars);
 });
-app.get("/cart", (req, res) => {
-  res.render("cart");
-})
+// app.get("/cart", (req, res) => {
+//   res.render("cart");
+// })
 
 // POST ADD TO CART BUTTON TO CHECKOUT CART (USING NEW PATH ORDER_ITEMS SO IT WON'T DISTURB ORDER_INDEX)
 
@@ -171,6 +171,10 @@ app.post("/checkout", (req, res) => {
 
   res.redirect("/");
   req.session = null;
+<<<<<<< HEAD
+=======
+  res.redirect("/");
+>>>>>>> 1aa6e6f18b80b2ef08e422e706bb0eeb02471599
 })
 
 
