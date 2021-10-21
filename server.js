@@ -124,9 +124,11 @@ app.get("/order_add_cart", (req, res) => {
 // Twilio API
 
 
-// const accountSid = 'AC0f80fa6f58ec1e2f3fe0be5b80521f83'; //PUT YOUR SID in ""
-// const authToken = '418f10c55eab8aaf3ee77bca3828f1b1'; //PUT YOUR Token in ""
-// const client = require('twilio')(accountSid, authToken);
+const accountSid = process.env.TWILIO_SID; 
+//need to ENV the Sid to prevent app from crashing
+const authToken = process.env.TWILIO_OAUTH; 
+//need to ENV the OAUTH token to prevent app from crashing
+const client = require('twilio')(accountSid, authToken);
 
 
 // Checkout page
