@@ -56,6 +56,46 @@ $(() => {
     method: "GET",
     url: "/menu_items"
   }).done((response) => {
+<<<<<<< HEAD
     renderMenu(response.menu_items);
   })
 });
+=======
+    renderMenu(response.menu_items)
+  })
+
+});
+
+
+
+//////////// ADD TO CART ////////////
+
+const createOrder = function (order) {
+  return (`
+    <tr>
+      <td>${order_items.name}</td>
+      <td>${order_items.quantity}</td>
+      <td>${order_items.total_price}</td>  //price*order.quantity
+    </tr>
+  `)
+};
+
+
+    <tbody class='order-table'>
+    </tbody>
+
+
+
+// another logic here:
+//  const containerMenu = $('order-table')
+
+//   orders.forEach((order) => {
+//     containerMenu.append(createMenu(menu_items))
+//     if (order.quantity > 0) {
+//       totalPrice += order.price * order.quantity;
+
+//     }
+//     containerMenu.append(createOrder(order))
+//   })
+
+>>>>>>> 6ac2c6c3182dfb13dd6aafb9f79a736885bfb8f8
