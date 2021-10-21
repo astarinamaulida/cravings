@@ -4,16 +4,6 @@
     $('#add-to-cart').click(function () {
       console.log('click');
     })
-    const addCart = function (id, name, unitPrice) {
-      console.log('id', id);
-      console.log('unitPrice', unitPrice);
-      let products = [];
-      if (localStorage.getItem('products')) {
-        products = JSON.parse(localStorage.getItem('products'));
-      }
-      products.push({ 'productId': id, 'productName': JSON.stringify(name), 'productUnitPrice': unitPrice });
-      localStorage.setItem('products', JSON.stringify(products));
-    }
   })
   
 
