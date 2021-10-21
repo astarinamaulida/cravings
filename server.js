@@ -78,17 +78,17 @@ app.get("/order_menu", (req, res) => {    ///need to change (for order_items) th
   res.render("order_menu", templateVars);
 })
 
-app.get("/cart", (req, res) => {
+app.get("/order_index", (req, res) => {
   const user = req.session.user_id;
   const templateVars = { user };
   if (!user) {
     return res.redirect('/order_signup');
   }
-  res.render("cart", templateVars);
+  res.render("order_index", templateVars);
 });
-// app.get("/cart", (req, res) => {
-//   res.render("cart");
-// })
+app.get("/cart", (req, res) => {
+  res.render("cart");
+})
 
 // POST ADD TO CART BUTTON TO CHECKOUT CART (USING NEW PATH ORDER_ITEMS SO IT WON'T DISTURB ORDER_INDEX)
 
@@ -126,9 +126,9 @@ app.get("/api/order_items", (req, res) => {
 // Twilio API
 
 
-// const accountSid = process.env.TWILIO_ACCOUNT_SI; //PUT YOUR SID in ""
-// const authToken = process.env.TWILIO_ACCOUNT_TOKEN; //PUT YOUR Token in ""
-// const clientRest = require('twilio')(accountSid, authToken);
+const accountSid = ''; //PUT YOUR SID in ""
+const authToken = ''; //PUT YOUR Token in ""
+const client = require('twilio')(accountSid, authToken);
 
 
 // Checkout page
@@ -139,22 +139,22 @@ app.get("/checkout", (req, res) => {
 app.post("/checkout", (req, res) => {
 
   // Send SMS to restaurant through Twilio
-  clientRest.messages
+  client.messages
   .create({
-      body: 'You received a new order. Please check the app for order details.',
+      body: 'You have a new order. Please check your order in our website.Cravings Team.',
       from: '+12494881210',
-      to: '+14379220404'
+      to: '+14379228484'
   })
   .then(message => console.log(message.sid))
   .catch(console.error)
   .done();
 
   // Send SMS to customer through Twilio
-  clientRest.messages
+  client.messages
   .create({
-      body: 'Thank you for your purchase. It will take 30 minutes for the order to be ready.',
+      body: 'Thank you for ordering from Cravings. Your order will be ready in 10 min.',
       from: '+12494881210',  // from TWilio phone
-      to: '+14379220404'   // put your REAL Mobile phone to test it
+      to:  '+14379228484'//`+${document.getElementById('phone').value}`   // put your phone to test it
   })
   .then(message => console.log(message.sid))
   .catch(console.error)
@@ -163,10 +163,6 @@ app.post("/checkout", (req, res) => {
   req.session = null;
   res.redirect("/index.js");
 })
-
-
-
-
 
 
 
