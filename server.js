@@ -126,8 +126,8 @@ app.get("/api/order_items", (req, res) => {
 // Twilio API
 
 
-const accountSid = ''; //PUT YOUR SID in ""
-const authToken = ''; //PUT YOUR Token in ""
+const accountSid = 'AC7ea74d71de54f739088cd9dd81557de4'; //PUT YOUR SID in ""
+const authToken = '0fd2a881fdaaa7c2838ab1dcb57ce148'; //PUT YOUR Token in ""
 const client = require('twilio')(accountSid, authToken);
 
 
@@ -137,6 +137,8 @@ app.get("/checkout", (req, res) => {
 })
 
 app.post("/checkout", (req, res) => {
+  console.log(req.params)
+  console.log(req.body)
 
   // Send SMS to restaurant through Twilio
   client.messages
@@ -154,17 +156,15 @@ app.post("/checkout", (req, res) => {
   .create({
       body: 'Thank you for ordering from Cravings. Your order will be ready in 10 min.',
       from: '+12494881210',  // from TWilio phone
-      to:  '+14379228484'//`+${document.getElementById('phone').value}`   // put your phone to test it
+      to:  `+${req.body.phone}`//`+${document.getElementById('phone').value}`   // put your phone to test it
   })
   .then(message => console.log(message.sid))
   .catch(console.error)
   .done();
 
   req.session = null;
-  res.redirect("/index.js");
+  res.redirect("/");
 })
-
-
 
 
 
