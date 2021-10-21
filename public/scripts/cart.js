@@ -26,46 +26,16 @@ $(() => {
       total = total + parseFloat(obj.productUnitPrice)
       $(".totals-value").html(total);
     }
-
   }
 
-  // const removeItem = function (id) {
-  //   console.log('id', id);
-  //   let products = [];
-  //   if (localStorage.getItem('products')) {
-  //     products = JSON.parse(localStorage.getItem('products'));
-  //   }
-  //   for (const obj of products) {
-  //     if (obj.productId === id) {
-  //       $(`#${id}`).remove();
-  //     }
-      
-  //     let total = $(".totals-value").val();
-  //     console.log('total', total);
-  //     total = total - parseFloat(obj.productUnitPrice)
-  //     $(".totals-value").html(total);
-  //   }
-  //   localStorage.setItem('products', JSON.stringify(products));
-  // }
-
-  // const removeItem = function () {
-  //   $("#click-to-remove").click(function (event) {
-  //     event.preventDefault();
-  //     console.log('clicked');
-  //     const itemId = $(event.target.value);
-  //     console.log('itemId', itemId);
-  //     let products = JSON.parse(localStorage.getItem('products'));
-  //     $(this).parent().parent().parent().parent().remove();
-
-  //     total = total - parseFloat(cart[itemId].productUnitPrice)
-
-  //     $(".totals-value").html(total)
-  //     delete products[itemId]
-
-
-  //     localStorage.setItem("products", JSON.stringify(products))
-  //   })
-  // }
+   //clear storage and go back to menu page
+   $("#clear-cart").on("click", function (event) {
+    const itemCard = $('.card');
+    itemCard.remove();
+    $('.totals-value').html(0);
+    
+    localStorage.clear();
+})
 
 
   populateCart();
