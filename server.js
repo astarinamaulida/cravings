@@ -144,13 +144,8 @@ app.post("/checkout", (req, res) => {
   client.messages
   .create({
       body: 'You have a new order. Please check your order in our website.Cravings Team.',
-<<<<<<< HEAD
-      from: '+18166533277',
-      to: '+16476392986'
-=======
       from: '+12494881210',
       to: '+14379220404'
->>>>>>> fd12a0f5ababbb3e692f4687b8cbf0d6ce7528c2
   })
   .then(message => console.log(message.sid))
   .catch(console.error)
@@ -160,13 +155,8 @@ app.post("/checkout", (req, res) => {
   client.messages
   .create({
       body: 'Thank you for ordering from Cravings. Your order will be ready in 10 min.',
-<<<<<<< HEAD
-      from: '+18166533277',  // from TWilio phone
-      to:  '+14379228484'//`+${document.getElementById('phone').value}`   // put your phone to test it
-=======
       from: '+12494881210',  // from TWilio phone
       to:  `+${req.body.phone}`//`+${document.getElementById('phone').value}`   // put your phone to test it
->>>>>>> fd12a0f5ababbb3e692f4687b8cbf0d6ce7528c2
   })
   .then(message => {
     console.log(message.sid)
@@ -181,10 +171,6 @@ app.post("/checkout", (req, res) => {
 
   res.redirect("/");
   req.session = null;
-<<<<<<< HEAD
-  res.redirect("/");
-=======
->>>>>>> fd12a0f5ababbb3e692f4687b8cbf0d6ce7528c2
 })
 
 
