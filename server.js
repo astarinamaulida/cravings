@@ -166,7 +166,7 @@ app.post("/checkout", (req, res) => {
   .done();
 
   req.session = null;
-  res.redirect("/index.js");
+  res.redirect("/");
 })
 
 
