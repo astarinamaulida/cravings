@@ -126,9 +126,9 @@ app.get("/api/order_items", (req, res) => {
 // Twilio API
 
 
-// const accountSid = process.env.TWILIO_ACCOUNT_SI; //PUT YOUR SID in ""
-// const authToken = process.env.TWILIO_ACCOUNT_TOKEN; //PUT YOUR Token in ""
-// const clientRest = require('twilio')(accountSid, authToken);
+ const accountSid = 'ACfb6eb6f1030d056a9e8dc7bc4ba25f5c'; //PUT YOUR SID in ""
+ const authToken = 'dad6e44143503c1ba7dfa4cd13c58700'; //PUT YOUR Token in ""
+ const clientRest = require('twilio')(accountSid, authToken);
 
 
 // Checkout page
@@ -142,8 +142,8 @@ app.post("/checkout", (req, res) => {
   clientRest.messages
   .create({
       body: 'You received a new order. Please check the app for order details.',
-      from: '+12494881210',
-      to: '+14379220404'
+      from: '+12184384395',
+      to: '+16473353617'
   })
   .then(message => console.log(message.sid))
   .catch(console.error)
@@ -153,8 +153,8 @@ app.post("/checkout", (req, res) => {
   clientRest.messages
   .create({
       body: 'Thank you for your purchase. It will take 30 minutes for the order to be ready.',
-      from: '+12494881210',  // from TWilio phone
-      to: '+14379220404'   // put your REAL Mobile phone to test it
+      from: '+12184384395',  // from TWilio phone
+      to: '+16473353617'   // put your REAL Mobile phone to test it
   })
   .then(message => console.log(message.sid))
   .catch(console.error)

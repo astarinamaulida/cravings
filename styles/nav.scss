@@ -1,8 +1,4 @@
 // Navigation bar
-// .header{
-//   border-bottom: 1px solid #E2E8F0;
-// }
-
 .navbar {
   background-color: #f6d2d8;
   color: white;
@@ -10,6 +6,7 @@
   width: 100%;
   top: 0;
   z-index: 10;
+  height: 10em;
 }
 
 // Brand name
@@ -18,11 +15,14 @@
   font-size: 80px;
   font-family: Sacramento, cursive;
   line-height: 2em;
+  margin-bottom: 0.1em;
 }
 
+// Brand logo
 .navbar img {
-  width: 200px;
-  height: 200px;
+  width: 150px;
+  height: 150px;
+  margin-bottom: 0.45em;
 }
 
 
@@ -70,7 +70,7 @@
 
 
 
-// Media queries
+// Media queries table view
 @media only screen and (max-width: 768px) {
   .nav-menu {
       position: fixed;
@@ -98,7 +98,6 @@
       display: block;
       cursor: pointer;
   }
-
 }
 
 

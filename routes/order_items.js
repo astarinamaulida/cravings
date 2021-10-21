@@ -24,26 +24,5 @@ module.exports = (db) => {
           .json({ error: err.message });
       });
   });
- 
-  // router.get('/order_index', (req, res) => {
-  //   const getItem = function (item) {
-  //     return db
-  //       .query(`SELECT * FROM menu_items WHERE id = $1`, [item])
-  //       .then((result) => {
-  //         return result.rows[0];
-  //       })
-  //       .catch((err) => {
-  //         console.log(err.message);
-  //       });
-  //   }
-  //   const item = req.body.item;
-  //   // console.log('item', item);
-  //   getItem(item).then((newItem) => {
-  //     // console.log('newItem', newItem);
-  //     const order_items = newItem;
-  //     // console.log('order_items', order_items);
-  //     res.render('order_index', {order_items});
-  //   })
-  // })
   return router;
 };
