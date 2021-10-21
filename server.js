@@ -117,11 +117,9 @@ app.get("/order_add_cart", (req, res) => {
 })
 
 /// route for order_items:
-app.get("/api/order_items", (req, res) => {
-  // req.session.order_items = order_items;   ???? is expression correct ?
-});
+// app.get("/order_items", (req, res) => {
 
-
+// }
 
 // Twilio API
 
@@ -170,9 +168,6 @@ app.post("/checkout", (req, res) => {
   req.session = null;
   res.redirect("/");
 })
-
-
-
 
 
 
