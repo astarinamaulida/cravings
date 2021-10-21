@@ -25,13 +25,12 @@ const createMenu = function (menu_items) {
           <img src="${menu_items.thumbnail_url}"
           alt="${menu_items.name}" width="300">
           <div class="item-info">
-          <p>Item ID ${menu_items.id}</p>
           <p>${menu_items.name}</p>
           <p>${menu_items.description}</p>
           <p>$${menu_items.unit_price}</p>
           </div>
           <div class="buttons ${isSignIn ? 'afterSignUp' : 'beforeSignUp'}">
-            <button onclick="addCart(${menu_items.id}, \'${menu_items.name}\', \'${menu_items.description}\', ${menu_items.unit_price}, \'${menu_items.thumbnail_url}\')">
+            <button class="btn" onclick="addCart(${menu_items.id}, \'${menu_items.name}\', \'${menu_items.description}\', ${menu_items.unit_price}, \'${menu_items.thumbnail_url}\')">
               <span>Add to cart</span>
             </button>
             <input type="hidden" name="item" value="${menu_items.id}">

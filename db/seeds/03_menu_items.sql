@@ -16,5 +16,3 @@ VALUES
 
 
 -- to run: \i db/seeds/03_menu_items.sql
-
-

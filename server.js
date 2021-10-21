@@ -78,17 +78,17 @@ app.get("/order_menu", (req, res) => {    ///need to change (for order_items) th
   res.render("order_menu", templateVars);
 })
 
-app.get("/order_index", (req, res) => {
+app.get("/cart", (req, res) => {
   const user = req.session.user_id;
   const templateVars = { user };
   if (!user) {
     return res.redirect('/order_signup');
   }
-  res.render("order_index", templateVars);
+  res.render("cart", templateVars);
 });
-app.get("/cart", (req, res) => {
-  res.render("cart");
-})
+// app.get("/cart", (req, res) => {
+//   res.render("cart");
+// })
 
 // POST ADD TO CART BUTTON TO CHECKOUT CART (USING NEW PATH ORDER_ITEMS SO IT WON'T DISTURB ORDER_INDEX)
 
@@ -117,18 +117,16 @@ app.get("/order_add_cart", (req, res) => {
 })
 
 /// route for order_items:
-app.get("/api/order_items", (req, res) => {
-  // req.session.order_items = order_items;   ???? is expression correct ?
-});
+// app.get("/order_items", (req, res) => {
 
-
+// }
 
 // Twilio API
 
 
-const accountSid = ''; //PUT YOUR SID in ""
-const authToken = ''; //PUT YOUR Token in ""
-const client = require('twilio')(accountSid, authToken);
+//const accountSid = ''; //PUT YOUR SID in ""
+//const authToken = ''; //PUT YOUR Token in ""
+//const client = require('twilio')(accountSid, authToken);
 
 
 // Checkout page
@@ -158,12 +156,20 @@ app.post("/checkout", (req, res) => {
       from: '+12494881210',  // from TWilio phone
       to:  `+${req.body.phone}`//`+${document.getElementById('phone').value}`   // put your phone to test it
   })
-  .then(message => console.log(message.sid))
-  .catch(console.error)
+  .then(message => {
+    console.log(message.sid)
+    const phone = req.body.phone;
+    console.log('phone', phone);
+  })
+  .catch(err => {
+    console.log('error', error);
+    res.redirect('/');
+  })
   .done();
 
   res.redirect("/");
   req.session = null;
+  res.redirect("/");
 })
 
 
