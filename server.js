@@ -15,16 +15,6 @@ app.use(cookieSession({
   keys: ['a long long hard to crack key', 'a much longer key to crack']
 }));
 
-//TWILIO SMS API:
-// Download the helper library from https://www.twilio.com/docs/node/install
-// Find your Account SID and Auth Token at twilio.com/console
-// and set the environment variables. See http://twil.io/secure
-
-// const accountSid = process.env.TWILIO_ACCOUNT_SID;
-// const authToken = process.env.TWILIO_AUTH_TOKEN;
-// const client = require('twilio')(accountSid, authToken);
-
-
 
 
 // PG database client/connection setup
@@ -131,16 +121,52 @@ app.get("/api/order_items", (req, res) => {
   // req.session.order_items = order_items;   ???? is expression correct ?
 });
 
-///LOGIN page? if we do sign up , then should be something like this :
 
-// app.get("/login/:user_email", (req, res) => {
-//   let userEmail = req.params.user_email;
-//   if (getUserByEmail(userEmail, db)) {
-//     req.session.userCookie = userEmail;
-//     //console.log(req.session.userCookie);
-//     res.redirect("/");
-//   }
-// });
+
+// Twilio API
+
+
+// const accountSid = process.env.TWILIO_ACCOUNT_SI; //PUT YOUR SID in ""
+// const authToken = process.env.TWILIO_ACCOUNT_TOKEN; //PUT YOUR Token in ""
+// const clientRest = require('twilio')(accountSid, authToken);
+
+
+// Checkout page
+app.get("/checkout", (req, res) => {
+  res.render("checkout");
+})
+
+app.post("/checkout", (req, res) => {
+
+  // Send SMS to restaurant through Twilio
+  clientRest.messages
+  .create({
+      body: 'You received a new order. Please check the app for order details.',
+      from: '+12494881210',
+      to: '+14379220404'
+  })
+  .then(message => console.log(message.sid))
+  .catch(console.error)
+  .done();
+
+  // Send SMS to customer through Twilio
+  clientRest.messages
+  .create({
+      body: 'Thank you for your purchase. It will take 30 minutes for the order to be ready.',
+      from: '+12494881210',  // from TWilio phone
+      to: '+14379220404'   // put your REAL Mobile phone to test it
+  })
+  .then(message => console.log(message.sid))
+  .catch(console.error)
+  .done();
+
+  req.session = null;
+  res.redirect("/index.js");
+})
+
+
+
+
 
 
 
