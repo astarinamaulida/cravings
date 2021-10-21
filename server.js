@@ -171,10 +171,6 @@ app.post("/checkout", (req, res) => {
 
   res.redirect("/");
   req.session = null;
-<<<<<<< HEAD
-=======
-  res.redirect("/");
->>>>>>> 1aa6e6f18b80b2ef08e422e706bb0eeb02471599
 })
 
 
