@@ -126,9 +126,9 @@ app.get("/api/order_items", (req, res) => {
 // Twilio API
 
 
-const accountSid = ''; //PUT YOUR SID in ""
-const authToken = ''; //PUT YOUR Token in ""
-const client = require('twilio')(accountSid, authToken);
+//const accountSid = ''; //PUT YOUR SID in ""
+//const authToken = ''; //PUT YOUR Token in ""
+//const client = require('twilio')(accountSid, authToken);
 
 
 // Checkout page
@@ -156,8 +156,15 @@ app.post("/checkout", (req, res) => {
       from: '+12494881210',  // from TWilio phone
       to:  '+14379228484'//`+${document.getElementById('phone').value}`   // put your phone to test it
   })
-  .then(message => console.log(message.sid))
-  .catch(console.error)
+  .then(message => {
+    console.log(message.sid)
+    const phone = req.body.phone;
+    console.log('phone', phone);
+  })
+  .catch(err => {
+    console.log('error', error);
+    res.redirect('/');
+  })
   .done();
 
   req.session = null;
