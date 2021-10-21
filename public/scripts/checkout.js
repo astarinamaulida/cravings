@@ -6,7 +6,11 @@ $(document).ready(function() {
      let phone = $("#phone").val();
         $.ajax({
             method: 'POST',
-            url: "/checkout"
+            url: "/checkout",
+            data: {
+              name,
+              phone
+            }
         })
 })
 
