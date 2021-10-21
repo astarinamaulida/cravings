@@ -4,6 +4,7 @@ $(document).ready(function() {
     event.preventDefault();
       let name = $("#name").val();
      let phone = $("#phone").val();
+     
         $.ajax({
             method: 'POST',
             url: "/checkout",
