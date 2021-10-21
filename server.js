@@ -15,16 +15,6 @@ app.use(cookieSession({
   keys: ['a long long hard to crack key', 'a much longer key to crack']
 }));
 
-//TWILIO SMS API:
-// Download the helper library from https://www.twilio.com/docs/node/install
-// Find your Account SID and Auth Token at twilio.com/console
-// and set the environment variables. See http://twil.io/secure
-
-// const accountSid = process.env.TWILIO_ACCOUNT_SID;
-// const authToken = process.env.TWILIO_AUTH_TOKEN;
-// const client = require('twilio')(accountSid, authToken);
-
-
 
 
 // PG database client/connection setup
@@ -76,7 +66,9 @@ app.use("/order_items", order_itemsRoutes(db));
 // Warning: avoid creating more routes in this file! Separate them into separate routes files (see above).
 
 app.get("/", (req, res) => {
-  res.render("index");
+  const user = req.session.user_id;
+  const templateVars = { user };
+  res.render("index", templateVars);
 });
 
 app.get("/order_signup", (req, res) => {
@@ -98,7 +90,9 @@ app.get("/order_index", (req, res) => {
   }
   res.render("order_index", templateVars);
 });
-
+app.get("/cart", (req, res) => {
+  res.render("cart");
+})
 
 // POST ADD TO CART BUTTON TO CHECKOUT CART (USING NEW PATH ORDER_ITEMS SO IT WON'T DISTURB ORDER_INDEX)
 
@@ -129,8 +123,48 @@ app.get("/order_add_cart", (req, res) => {
 /// route for order_items:
 app.get("/order_items", (req, res) => {
 
-});
 
+
+// Twilio API
+
+
+const accountSid = ''; //PUT YOUR SID in ""
+const authToken = ''; //PUT YOUR Token in ""
+const client = require('twilio')(accountSid, authToken);
+
+
+// Checkout page
+app.get("/checkout", (req, res) => {
+  res.render("checkout");
+})
+
+app.post("/checkout", (req, res) => {
+
+  // Send SMS to restaurant through Twilio
+  client.messages
+  .create({
+      body: 'You have a new order. Please check your order in our website.Cravings Team.',
+      from: '+12494881210',
+      to: '+14379228484'
+  })
+  .then(message => console.log(message.sid))
+  .catch(console.error)
+  .done();
+
+  // Send SMS to customer through Twilio
+  client.messages
+  .create({
+      body: 'Thank you for ordering from Cravings. Your order will be ready in 10 min.',
+      from: '+12494881210',  // from TWilio phone
+      to:  '+14379228484'//`+${document.getElementById('phone').value}`   // put your phone to test it
+  })
+  .then(message => console.log(message.sid))
+  .catch(console.error)
+  .done();
+
+  req.session = null;
+  res.redirect("/index.js");
+})
 
 
 

@@ -1,14 +1,5 @@
 //database.js file
 
-// const menu_items = require(‘./json/menu_items.json’);
-// const users = require(‘./json/users.json’);
-// const orders = require(‘./json/orders.json’);
-// const order_items = require(‘./json/menu_items.json’);
-// const order_items = require(‘./json/order_items.json’);
-
-
-
-
 const { Pool } = require('pg');
 const pool = new Pool({
  user: 'labber', //'labber'
@@ -19,7 +10,6 @@ const pool = new Pool({
 
 
 // run from  db/database.js
-
 // need to wrap it and export it:
 pool.query(`
 SELECT id, name, email
@@ -43,6 +33,8 @@ FROM menu_items;
 
 
 
+////////// GET USER //////////
+
 const getUserByEmail = function (email, db) {
   return db.query(`SELECT * FROM users
   WHERE users.email = $1;`, [email])
@@ -52,14 +44,13 @@ const getUserByEmail = function (email, db) {
 exports.getUserByEmail = getUserByEmail;
 
 
+////////// GET MENU //////////
 
-// <<<<<<< HEAD
 const getAllMenu = function (menu) {
   return pool.query(`SELECT * FROM menu_items;
  `, [menu])
     .then(res => res.rows);
 }
-
 
  const getAllMenu = function(menu) {
    return pool

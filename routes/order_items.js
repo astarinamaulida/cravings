@@ -1,13 +1,13 @@
 const express = require('express');
-const router  = express.Router();
+const router = express.Router();
 
 module.exports = (db) => {
-  router.get("/", (req, res) => {
+  router.get("/order_index", (req, res) => {
     let query = `SELECT *, menu_items.name FROM orders_items
     JOIN orders ON orders.id = order_id
     JOIN menu_items ON menu_items.id=menu_items_id
     JOIN users ON users.id = user_id
-    WHERE users.email = $1
+    WHERE users.phone = $1
     ;`;
     let param = [req.session.userCookie]
     console.log(query, param);

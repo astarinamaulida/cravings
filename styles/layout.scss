@@ -82,4 +82,11 @@ html {
       }
   }
   }
+  #order-items {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 2em;
+    justify-content: space-evenly;
+    align-items: space-evenly;
+  }
 }

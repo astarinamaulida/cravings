@@ -18,7 +18,7 @@
   <link rel="stylesheet" href="/styles/cart.css" type="text/css" />
 
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-  <script type="text/javascript" src="/scripts/app.js"></script>
+  <script type="text/javascript" src="/scripts/cart.js"></script>
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -31,7 +31,7 @@
   <%- include _nav.ejs %>
   <main id="cart">
       <h2><span class="cart-of-username">Your</span> Cart</h2>
-      <div class="card mb-3" style="max-width: 540px;">
+      <!-- <div class="card mb-3" style="max-width: 540px;">
         <div class="row g-0">
           <div class="col-md-4 cart-imgs">
             <img src="https://github.com/astarinamaulida/cravings/blob/master/doc/cake-pic2.jpeg?raw=true" class="img-fluid rounded-start" alt="order1" width="300">
@@ -58,12 +58,15 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
+      <section id="order-items">
+
+      </section>
       <div class="totals">
         <div class="totals-item totals-item-total">
           <label>Grand Total</label>
-          <div class="totals-value" id="cart-total">90.57</div>
-          <button class="checkout">Checkout</button>
+          <div class="totals-value" id="cart-total"></div>
+          <a href="/checkout"><button class="checkout">Checkout</button></a>
         </div>
       </div>
   </main>
