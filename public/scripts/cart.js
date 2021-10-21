@@ -20,9 +20,6 @@ $(() => {
               <p class="card-text">${obj.productDescription}</p>
               <p class="card-text">Unit price: $${obj.productUnitPrice}</p>
             </div>
-            <div id="remove-item" onCick="removeItem($('#${obj.productId}))">
-              <button>Remove Item</button>
-            </div>
           </div>
         </div>
       </div>
@@ -34,7 +31,14 @@ $(() => {
         
     }
 
-
+   //clear storage and go back to menu page
+   $("#clear-cart").on("click", function (event) {
+    const itemCard = $('.card');
+    itemCard.remove();
+    $('.totals-value').html(0);
+    
+    localStorage.clear();
+})
 
     populateCart();
 
