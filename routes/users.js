@@ -43,7 +43,7 @@ module.exports = (db) => {
       const user = req.body;
       addUser(user).then((newUser) => {
         req.session.user_id = newUser.id;
-        res.redirect("/order_index");
+        res.redirect("/cart");
       })
     })
 
