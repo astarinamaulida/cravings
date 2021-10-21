@@ -9,16 +9,19 @@ $(() => {
         for (const obj of products) {
             console.log('obj', obj);
                 let container = `
-                <div class="card mb-3" style="max-width: 540px;">
+        <div class="card mb-3" style="max-width: 540px;" id="${obj.productId}">
         <div class="row g-0">
           <div class="col-md-4 cart-imgs">
             <img src="${obj.productThumbnail}" class="img-fluid rounded-start" alt="${obj.productName}" width="300">
           </div>
           <div class="col-md-8">
             <div class="card-body">
-              <h5 class="card-title">${obj.productName}</h5>
+              <h5 class="card-title">Item: ${obj.productName}</h5>
               <p class="card-text">${obj.productDescription}</p>
-              <p class="card-text">${obj.productUnitPrice}</p>
+              <p class="card-text">Unit price: $${obj.productUnitPrice}</p>
+            </div>
+            <div id="remove-item" onCick="removeItem($('#${obj.productId}))">
+              <button>Remove Item</button>
             </div>
           </div>
         </div>
@@ -30,5 +33,9 @@ $(() => {
             }
         
     }
+
+
+
     populateCart();
+
 })
