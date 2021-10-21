@@ -58,37 +58,4 @@ $(() => {
   }).done((response) => {
     renderMenu(response.menu_items);
   })
-  
-  // $.ajax({
-  //   method: "POST",
-  //   url: "/order_items"
-  // }).done((response) => {
-  //   renderOrdersInCart(response.order_items)
-  // })
 });
-
-const createOrder = function (order_items) {
-  // const orderParsed = JSON.parse(order_items);
-  return (`
-    <tr>
-      <td>${order_items.name}</td>
-      <td>${order_items.quantity}</td>
-      <td>${order_items.total_price}</td>
-    </tr>
-  `)
-};
-
-const renderOrdersInCart = function (items) {
-  const containerCart = $('#order-items');
-  console.log('items', items);
-  containerCart.append(createOrder(order_items));
-}
-
-// $(() => {
-//   $.ajax({
-//     method: "GET",
-//     url: "/order_items"
-//   }).done((response) => {
-//     renderOrdersInCart(response.order_items)
-//   })
-// });

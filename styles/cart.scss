@@ -1,12 +1,14 @@
 #cart {
+  position: relative;
   width: 100%;
-  padding: 5em;
+  top: 28em;
+  padding-bottom: 10em;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   font-family: 'Comfortaa', cursive;
-  margin-right: 200em;
+  // margin-right: 200em;
   .card {
     margin: 2em, auto;
   }
