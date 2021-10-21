@@ -1,28 +1,28 @@
 // Navigation bar
+.header{
+  border-bottom: 1px solid #E2E8F0;
+}
+
 .navbar {
   background-color: #f6d2d8;
   color: white;
-  position: fixed;
-  width: 100%;
-  top: 0;
-  z-index: 10;
-  height: 10em;
 }
 
 // Brand name
 .navbar-brand {
-  margin-top: 30px;
   font-size: 80px;
   font-family: Sacramento, cursive;
   line-height: 2em;
-  margin-bottom: 0.1em;
+  margin-bottom: 0em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 // Brand logo
 .navbar img {
-  width: 150px;
-  height: 150px;
-  margin-bottom: 0.45em;
+  width: 200px;
+  height: 200px;
 }
 
 

@@ -126,9 +126,9 @@ app.get("/api/order_items", (req, res) => {
 // Twilio API
 
 
- const accountSid = 'ACfb6eb6f1030d056a9e8dc7bc4ba25f5c'; //PUT YOUR SID in ""
+/*  const accountSid = 'ACfb6eb6f1030d056a9e8dc7bc4ba25f5c'; //PUT YOUR SID in ""
  const authToken = 'dad6e44143503c1ba7dfa4cd13c58700'; //PUT YOUR Token in ""
- const clientRest = require('twilio')(accountSid, authToken);
+ const clientRest = require('twilio')(accountSid, authToken); */
 
 
 // Checkout page
@@ -161,7 +161,7 @@ app.post("/checkout", (req, res) => {
   .done();
 
   req.session = null;
-  res.redirect("/index.js");
+  res.redirect("/");
 })
 
 
