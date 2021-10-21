@@ -4,11 +4,7 @@ $(document).ready(function() {
     event.preventDefault();
       let name = $("#name").val();
      let phone = $("#phone").val();
-<<<<<<< HEAD
      
-=======
-
->>>>>>> testingGloria-cartAstaBranchesMerge
         $.ajax({
             method: 'POST',
             url: "/checkout",
