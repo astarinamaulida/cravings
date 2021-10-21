@@ -117,9 +117,9 @@ app.get("/order_add_cart", (req, res) => {
 })
 
 /// route for order_items:
-app.get("/order_items", (req, res) => {
+// app.get("/order_items", (req, res) => {
 
-}
+// }
 
 // Twilio API
 
