@@ -124,9 +124,9 @@ app.get("/order_add_cart", (req, res) => {
 // Twilio API
 
 
-const accountSid = 'AC0f80fa6f58ec1e2f3fe0be5b80521f83'; //PUT YOUR SID in ""
-const authToken = '418f10c55eab8aaf3ee77bca3828f1b1'; //PUT YOUR Token in ""
-const client = require('twilio')(accountSid, authToken);
+// const accountSid = 'AC0f80fa6f58ec1e2f3fe0be5b80521f83'; //PUT YOUR SID in ""
+// const authToken = '418f10c55eab8aaf3ee77bca3828f1b1'; //PUT YOUR Token in ""
+// const client = require('twilio')(accountSid, authToken);
 
 
 // Checkout page
@@ -142,8 +142,13 @@ app.post("/checkout", (req, res) => {
   client.messages
   .create({
       body: 'You have a new order. Please check your order in our website.Cravings Team.',
+<<<<<<< HEAD
       from: '+12494881210',
       to: '+14379220404'
+=======
+      from: '+18166533277',
+      to: '+16476392986'
+>>>>>>> 1fc4333 (twilio completion)
   })
   .then(message => console.log(message.sid))
   .catch(console.error)
