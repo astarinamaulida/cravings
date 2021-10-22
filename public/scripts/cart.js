@@ -28,16 +28,14 @@ $(() => {
     }
   }
 
-   //clear storage and go back to menu page
-   $("#clear-cart").on("click", function (event) {
+  //clear storage and go back to menu page
+  $("#clear-cart").on("click", function (event) {
     const itemCard = $('.card');
     itemCard.remove();
     $('.totals-value').html(0);
-    
-    localStorage.clear();
-})
 
+    localStorage.clear();
+  })
 
   populateCart();
-  removeItem();
 })
