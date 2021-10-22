@@ -86,40 +86,12 @@ app.get("/cart", (req, res) => {
   }
   res.render("cart", templateVars);
 });
-// app.get("/cart", (req, res) => {
-//   res.render("cart");
-// })
+
+
 
 // POST ADD TO CART BUTTON TO CHECKOUT CART (USING NEW PATH ORDER_ITEMS SO IT WON'T DISTURB ORDER_INDEX)
 
-app.post("/order_add_cart", (req, res) => {
-  console.log("helooow", req.body)
-  const user_id = req.session.user_id;
-  if (!user_id) {
-    res.redirect("/order_index");
-  }
-  if (carts[user_id]) {
-    carts[user_id].push(req.body.item)
-  }
-  else {
-    carts[user_id] = [req.body.item]
-  }
-});
 
-app.get("/order_add_cart", (req, res) => {
-  const users = req.session.user_id;
-  if (users) {
-    return res.render("/order_add_cart");
-  }
-  else {
-    return res.render("/order_signup")
-  }
-})
-
-/// route for order_items:
-// app.get("/order_items", (req, res) => {
-
-// }
 
 // Twilio API
 
