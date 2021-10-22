@@ -1,7 +1,16 @@
 #checkout {
-  top: 20em;
-  margin: 4 em, auto;
+  top: 7em;
+  margin: 4em;
+  padding-bottom: 5em;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .checkout-container {
+    display: flex;
+    flex-direction: column;
+  }
 }
   #name.name-field {
     width: 100%;
@@ -11,15 +20,20 @@
     align-items: center;
   }
 
-.btn  {
+.btn, button  {
 color: white;
 background-color: #Eacbd3;
-width: 40%;
-padding-top: 200em;
+width: 20vh;
+// padding-top: 200em;
 font-family: 'Comfortaa', cursive;
-width: 300px;
 margin: 1em;
 display: flex;
 flex-direction: column;
-justify-content: flex-end;
+justify-content: start;
+text-decoration: none;
+}
+#orderingMsg {
+  margin: 5em;
+  display: flex;
+  justify-content: center;
 }
