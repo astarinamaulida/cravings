@@ -4,19 +4,6 @@ $(document).ready(function () {
     event.preventDefault();
     let name = $("#name").val();
     let phone = $("#phone").val();
-<<<<<<< HEAD
-
-    $.ajax({
-      method: 'POST',
-      url: "/checkout",
-      data: {
-        name,
-        phone
-      }
-    })
-  })
-=======
->>>>>>> gloria-cart
 
     $.ajax({
       method: 'POST',
