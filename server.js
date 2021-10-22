@@ -126,8 +126,8 @@ app.get("/api/order_items", (req, res) => {
 // Twilio API
 
 
-const accountSid = ''; //PUT YOUR SID in ""
-const authToken = ''; //PUT YOUR Token in ""
+const accountSid = process.env.TWILIO_SID; //PUT YOUR SID in ""
+const authToken = process.env.TWILIO_OAUTH; //PUT YOUR Token in ""
 const client = require('twilio')(accountSid, authToken);
 
 
@@ -144,8 +144,8 @@ app.post("/checkout", (req, res) => {
   client.messages
   .create({
       body: 'You have a new order. Please check your order in our website.Cravings Team.',
-      from: '+12494881210',
-      to: '+14379220404'
+      from: process.env.TWILIO_MOBILE,
+      to: '+14379228484'
   })
   .then(message => console.log(message.sid))
   .catch(console.error)
@@ -155,7 +155,7 @@ app.post("/checkout", (req, res) => {
   client.messages
   .create({
       body: 'Thank you for ordering from Cravings. Your order will be ready in 10 min.',
-      from: '+12494881210',  // from TWilio phone
+      from: process.env.TWILIO_MOBILE,  // from TWilio phone
       to:  `+${req.body.phone}`//`+${document.getElementById('phone').value}`   // put your phone to test it
   })
   .then(message => console.log(message.sid))
