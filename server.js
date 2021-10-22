@@ -124,15 +124,10 @@ app.get("/order_add_cart", (req, res) => {
 // Twilio API
 
 
-<<<<<<< HEAD
-const accountSid = process.env.TWILIO_SID; //PUT YOUR SID in ""
-const authToken = process.env.TWILIO_OAUTH; //PUT YOUR Token in ""
-=======
 const accountSid = process.env.TWILIO_SID; 
 //need to ENV the Sid to prevent app from crashing
 const authToken = process.env.TWILIO_OAUTH; 
 //need to ENV the OAUTH token to prevent app from crashing
->>>>>>> gloria-cart
 const client = require('twilio')(accountSid, authToken);
 
 
