@@ -98,6 +98,7 @@ app.get("/cart", (req, res) => {
 
 const accountSid = process.env.TWILIO_SID; 
 //need to ENV the Sid to prevent app from crashing
+
 const authToken = process.env.TWILIO_OAUTH; 
 //need to ENV the OAUTH token to prevent app from crashing
 const client = require('twilio')(accountSid, authToken);
@@ -117,7 +118,8 @@ app.post("/checkout", (req, res) => {
   .create({
       body: 'You have a new order. Please check your order in our website.Cravings Team.',
       from: process.env.TWILIO_MOBILE,
-      to: '+14379228484'
+      to: '+1'
+      //Please put in a working phone number in the above, in the format: '+16470000000'
   })
   .then(message => console.log(message.sid))
   .catch(console.error)
@@ -128,7 +130,7 @@ app.post("/checkout", (req, res) => {
   .create({
       body: 'Thank you for ordering from Cravings. Your order will be ready in 10 min.',
       from: process.env.TWILIO_MOBILE,  // from TWilio phone
-      to:  `+${req.body.phone}`//`+${document.getElementById('phone').value}`   // put your phone to test it
+      to:  `+1${req.body.phone}`//`+${document.getElementById('phone').value}`   // put your phone to test it
   })
   .then(message => {
     console.log(message.sid)
