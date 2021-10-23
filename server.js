@@ -114,6 +114,7 @@ app.post("/checkout", (req, res) => {
   console.log(req.body)
 
   // Send SMS to restaurant through Twilio
+  //Message from twilio to restaurant
   client.messages
   .create({
       body: 'You have a new order. Please check your order in our website.Cravings Team.',
